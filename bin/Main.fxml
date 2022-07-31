@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<<<<<<< HEAD
 <?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -25,3 +26,11 @@
       </AnchorPane>
    </children>
 </VBox>
+=======
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1">
+	<!-- TODO Add Nodes -->
+</VBox>
+
+>>>>>>> mehedi-dev
