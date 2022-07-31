@@ -14,15 +14,14 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-<<<<<<< HEAD
-			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,1000,600);
-=======
+
 			FXMLLoader loader = new FXMLLoader();
+			
+
+			
 			VBox root = loader.load(new FileInputStream("src/Main.fxml"));
-	
-			Scene scene = new Scene(root,800,800);
->>>>>>> mehedi-dev
+			Scene scene = new Scene(root,1000,600);
+
 			
 			primaryStage.setScene(scene);
 			primaryStage.show();
