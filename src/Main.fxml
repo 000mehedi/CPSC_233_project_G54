@@ -1,8 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
-</VBox>
 
+<VBox xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.main">
+   <children>
+      <AnchorPane prefHeight="263.0" prefWidth="639.0">
+         <children>
+            <BorderPane prefHeight="27.0" prefWidth="639.0">
+               <top>
+                  <HBox prefHeight="25.0" prefWidth="563.0" style="-fx-background-color: purple;" BorderPane.alignment="CENTER" />
+               </top>
+            </BorderPane>
+            <HBox layoutX="-1.0" layoutY="234.0" prefHeight="100.0" prefWidth="639.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#buttonGetStarted" text="Get Started" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

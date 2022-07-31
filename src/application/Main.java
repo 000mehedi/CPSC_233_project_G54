@@ -11,7 +11,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,800,800);
+			Scene scene = new Scene(root,1000,600);
 			
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -24,3 +24,4 @@ public class Main extends Application {
 		launch(args);
 	}
 }
+ 
