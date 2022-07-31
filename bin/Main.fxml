@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
@@ -10,28 +12,29 @@
 
 <VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller">
    <children>
-      <AnchorPane prefHeight="334.0" prefWidth="608.0">
+      <ImageView fitHeight="426.0" fitWidth="646.0">
+         <image>
+            <Image url="@../../../../Downloads/People%20Dollar%20logo,%20Money%20Finances%20logo.png" />
+         </image>
+      </ImageView>
+      <AnchorPane prefHeight="211.0" prefWidth="646.0" style="-fx-background-color: WHITE;">
          <children>
             <BorderPane prefHeight="27.0" prefWidth="639.0" />
-            <HBox layoutX="-1.0" layoutY="319.0" prefHeight="15.0" prefWidth="646.0" style="-fx-background-color: purple;" />
-            <HBox alignment="CENTER" layoutX="230.0" layoutY="161.0" prefHeight="100.0" prefWidth="201.0">
+            <HBox layoutX="-1.0" layoutY="319.0" prefHeight="0.0" prefWidth="646.0" style="-fx-background-color: WHITE;" />
+            <HBox alignment="CENTER" layoutX="223.0" layoutY="81.0" prefHeight="100.0" prefWidth="201.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="136.0" text="Get Started" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="97.0" layoutY="27.0" prefHeight="100.0" prefWidth="463.0">
-               <children>
-                  <Label contentDisplay="CENTER" prefHeight="50.0" prefWidth="202.0" text="BUDGET WELL" textAlignment="CENTER">
+                  <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="180.0" style="-fx-background-color: BLACK;" text="Get Started" textAlignment="CENTER">
+                     <textFill>
+                        <LinearGradient endX="0.33809523809523806" endY="0.861904761904762" startX="0.3333333333333333" startY="0.26666666666666666">
+                           <stops>
+                              <Stop color="#c3c022" />
+                              <Stop color="YELLOW" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
                      <font>
-                        <Font name="Arial" size="25.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                     <HBox.margin>
-                        <Insets left="15.0" />
-                     </HBox.margin>
-                  </Label>
+                        <Font name="Segoe MDL2 Assets" size="24.0" />
+                     </font></Button>
                </children>
             </HBox>
          </children>
