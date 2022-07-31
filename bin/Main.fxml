@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller">
+   <children>
+      <AnchorPane prefHeight="334.0" prefWidth="608.0">
+         <children>
+            <BorderPane prefHeight="27.0" prefWidth="639.0" />
+            <HBox layoutX="-1.0" layoutY="319.0" prefHeight="15.0" prefWidth="646.0" style="-fx-background-color: purple;" />
+            <HBox alignment="CENTER" layoutX="230.0" layoutY="161.0" prefHeight="100.0" prefWidth="201.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="136.0" text="Get Starrrted" />
+               </children>
+            </HBox>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </AnchorPane>
+   </children>
 </VBox>
+
+
+
 

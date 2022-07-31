@@ -14,10 +14,14 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+
 			FXMLLoader loader = new FXMLLoader();
+			
+
+			
 			VBox root = loader.load(new FileInputStream("src/Main.fxml"));
-	
-			Scene scene = new Scene(root,800,800);
+			Scene scene = new Scene(root,1000,600);
+
 			
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -30,3 +34,4 @@ public class Main extends Application {
 		launch(args);
 	}
 }
+ 
