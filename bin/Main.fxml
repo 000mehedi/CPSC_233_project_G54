@@ -16,7 +16,7 @@
             <HBox layoutX="-1.0" layoutY="319.0" prefHeight="15.0" prefWidth="646.0" style="-fx-background-color: purple;" />
             <HBox alignment="CENTER" layoutX="230.0" layoutY="161.0" prefHeight="100.0" prefWidth="201.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="136.0" text="Get Started" />
+                  <Button mnemonicParsing="false" prefHeight="59.0" prefWidth="136.0" text="Get Starrrted" />
                </children>
             </HBox>
          </children>
