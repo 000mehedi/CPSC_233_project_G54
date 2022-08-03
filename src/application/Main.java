@@ -19,7 +19,7 @@ public class Main extends Application {
 			
 
 			
-			VBox root = loader.load(new FileInputStream("src/screen1.fxml"));
+			VBox root = loader.load(new FileInputStream("src/screens/screen1.fxml"));
 			Scene scene = new Scene(root,1000,600);
 
 			
