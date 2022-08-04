@@ -17,11 +17,11 @@ public class Main extends Application {
 
 			FXMLLoader loader = new FXMLLoader();
 			
-
-			
 			VBox root = loader.load(new FileInputStream("src/screens/screen1.fxml"));
+			mainController controller = (mainController)loader.getController();
+			controller.applicationStage = primaryStage;
+			
 			Scene scene = new Scene(root,1000,600);
-
 			
 			primaryStage.setScene(scene);
 			primaryStage.show();
