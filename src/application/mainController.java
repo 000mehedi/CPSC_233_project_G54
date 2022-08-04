@@ -32,17 +32,48 @@ public class mainController {
     }
 
     @FXML
-    void depositFunds(ActionEvent event) {
+    void depositFunds(ActionEvent event) throws IOException {
+    	FXMLLoader loader = new FXMLLoader();
+    	VBox root = loader.load(new FileInputStream("src/screens/screen3.fxml"));
+    	stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    	scene = new Scene(root);
+    	stage.setScene(scene);
+    	stage.show();
 
     }
 
     @FXML
-    void withdrawFunds(ActionEvent event) {
+    void withdrawFunds(ActionEvent event) throws IOException {
 
+    	FXMLLoader loader = new FXMLLoader();
+    	VBox root = loader.load(new FileInputStream("src/screens/screen4.fxml"));
+    	stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    	scene = new Scene(root);
+    	stage.setScene(scene);
+    	stage.show();    	
     }
 
     @FXML
-    void myAccounts(ActionEvent event) {
+    void myAccounts(ActionEvent event) throws IOException {
+    	
+    	FXMLLoader loader = new FXMLLoader();
+    	VBox root = loader.load(new FileInputStream("src/screens/screen5.fxml"));
+    	stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    	scene = new Scene(root);
+    	stage.setScene(scene);
+    	stage.show();    	
+
+    }
+    
+    @FXML
+    void transferFunds (ActionEvent event) throws IOException {
+    	
+    	FXMLLoader loader = new FXMLLoader();
+    	VBox root = loader.load(new FileInputStream("src/screens/transferFunds.fxml"));
+    	stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    	scene = new Scene(root);
+    	stage.setScene(scene);
+    	stage.show();    	
 
     }
 
