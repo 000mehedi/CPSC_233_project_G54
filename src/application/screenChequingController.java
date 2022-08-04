@@ -13,6 +13,8 @@ public class screenChequingController {
 
     @FXML
     void generateAccountNumber(ActionEvent event) {
+
+    	
     	Random random = new Random();
     	double chequingAccountNumber = random.nextInt(10000); 
     	
