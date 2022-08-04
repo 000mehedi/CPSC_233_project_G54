@@ -1,57 +1,38 @@
 package application;
 
 
-
-
-
+import java.io.FileInputStream;
+import java.io.IOException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-
+import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 public class mainController {
-	// Stage applicationStage;
-	// private Scene scene;
-	
-	@FXML
-	Button createNewAccount;
+	private Stage stage;
+	private Scene scene;
 
     @FXML
-    public void createNewAccount() throws Exception {
-    
-    	VBox root = FXMLLoader.load(getClass().getResource("screen1.fxml"));
+    public void createNewAccount(ActionEvent event) throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		VBox root = loader.load(new FileInputStream("src/screens/screen2.fxml"));
+    	stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    	scene = new Scene(root);
+    	stage.setScene(scene);
+    	stage.show();
     	
-    	Stage scene = (Stage) createNewAccount.getScene().getWindow();
-    	scene.setScene(new Scene(root, 750, 500));
-    	
-    	
-    	
-    	
-    	
-    	
-    
-    	//VBox accountType = new VBox();
-    	//Label accountLabel = new Label("Select Account Type");
-    	//Button chequingAccountButton = new Button("Chequing Account");
-    	//Button savingsAccountButton = new Button("Savings Account");
-    	//accountType.getChildren().addAll(accountLabel,chequingAccountButton,savingsAccountButton);
-    	
-    	//Scene accountScene = new Scene(accountType);
-    	//applicationStage.setScene(accountScene);
-    	
-    	
-    	
-
+		
     }
 
     @FXML
-    void depositFunds(ActionEvent event){
-    	
+    void depositFunds(ActionEvent event) {
 
     }
 
