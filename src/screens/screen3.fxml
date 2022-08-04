@@ -1,8 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<VBox prefHeight="375.0" prefWidth="275.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="298.0" prefWidth="275.0">
+         <top>
+            <HBox alignment="CENTER" prefHeight="80.0" prefWidth="275.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Deposit Fund" textAlignment="CENTER" />
+               </children>
+            </HBox>
+         </top>
+         <center>
+            <VBox alignment="CENTER" prefHeight="135.0" prefWidth="275.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Chequing Account">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Savings Account">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
 </VBox>
-
