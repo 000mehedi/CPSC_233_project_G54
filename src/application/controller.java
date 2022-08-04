@@ -1,12 +1,33 @@
 package application;
 
-import java.awt.event.ActionEvent;
-
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-public class controller{
-	@FXML
-	void buttonGetStarted(ActionEvent event) {
-		
-	}
+public class controller {
+
+    @FXML
+    void createNewAccount(ActionEvent event) {
+
+    }
+
+    @FXML
+    void depositFunds(ActionEvent event) {
+
+    }
+
+    @FXML
+    void withdrawFunds(ActionEvent event) {
+
+    }
+
+    @FXML
+    void myAccounts(ActionEvent event) {
+
+    }
+
+    @FXML
+    void quit(ActionEvent event) {
+
+    }
+
 }
