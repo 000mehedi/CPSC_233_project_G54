@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox alignment="CENTER" prefHeight="463.0" prefWidth="276.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<VBox alignment="CENTER" prefHeight="463.0" prefWidth="276.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.screenSavingController">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -15,10 +14,10 @@
             <Label text="Savings Account: " />
          </children>
       </HBox>
-      <Button mnemonicParsing="false" text="Generate Account Number" />
+      <Button mnemonicParsing="false" onAction="#generateAccountNumber" text="Generate Account Number" />
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label text="Account Number: " />
+            <Label fx:id="savingAccNumLabel" text="Account Number: " />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="240.0" prefWidth="276.0">
