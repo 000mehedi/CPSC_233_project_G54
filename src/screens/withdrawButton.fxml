@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox alignment="TOP_CENTER" prefHeight="321.0" prefWidth="316.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <HBox alignment="CENTER" prefHeight="67.0" prefWidth="316.0">
+         <children>
+            <Label text="Withdraw:" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="328.0" prefWidth="373.0" text="Chequing balance:" />
+         </children>
+      </HBox>
+      <Label text="Enter Amount:" />
+      <HBox alignment="CENTER" prefHeight="75.0" prefWidth="316.0">
+         <children>
+            <TextField />
+         </children>
+      </HBox>
+      <Button mnemonicParsing="false" text="Withdraw" />
+   </children>
+</VBox>
