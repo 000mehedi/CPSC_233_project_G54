@@ -15,19 +15,15 @@
          </children>
       </HBox>
       <Button mnemonicParsing="false" onAction="#generateAccountNumber" text="Generate Account Number" />
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="94.0" prefWidth="276.0">
          <children>
-            <Label text="Account Number: " />
+            <Label fx:id="chequingAccNumLabel" text="Account Number: " />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="240.0" prefWidth="276.0">
+      <VBox alignment="CENTER" prefHeight="133.0" prefWidth="276.0">
          <children>
-            <Button mnemonicParsing="false" text="Done">
-               <HBox.margin>
-                  <Insets bottom="1.0" right="10.0" top="10.0" />
-               </HBox.margin>
-            </Button>
+            <Button mnemonicParsing="false" text="Done" />
          </children>
-      </HBox>
+      </VBox>
    </children>
 </VBox>
