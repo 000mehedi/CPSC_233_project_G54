@@ -28,15 +28,15 @@
          <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </VBox.margin></Button>
-      <Button mnemonicParsing="false" onAction="#myAccounts" prefHeight="175.0" prefWidth="219.0" text="Transfer Funds">
+      <Button mnemonicParsing="false" onAction="#transferFunds" prefHeight="175.0" prefWidth="219.0" text="Transfer Funds">
          <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </VBox.margin></Button>
-      <Button mnemonicParsing="false" onAction="#quit" prefHeight="175.0" prefWidth="219.0" text="My Accounts">
+      <Button mnemonicParsing="false" onAction="#myAccounts" prefHeight="175.0" prefWidth="219.0" text="My Accounts">
          <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </VBox.margin></Button>
-      <Button mnemonicParsing="false" prefHeight="175.0" prefWidth="219.0" text="Quit">
+      <Button mnemonicParsing="false" onAction="#quit" prefHeight="175.0" prefWidth="219.0" text="Quit">
          <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </VBox.margin>

@@ -57,7 +57,7 @@ public class mainController {
     void myAccounts(ActionEvent event) throws IOException {
     	
     	FXMLLoader loader = new FXMLLoader();
-    	VBox root = loader.load(new FileInputStream("src/screens/screen5.fxml"));
+    	VBox root = loader.load(new FileInputStream("src/screens/myAccounts.fxml"));
     	stage = (Stage)((Node)event.getSource()).getScene().getWindow();
     	scene = new Scene(root);
     	stage.setScene(scene);
