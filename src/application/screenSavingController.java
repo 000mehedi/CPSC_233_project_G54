@@ -6,19 +6,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class screenChequingController {
+public class screenSavingController {
 	
 	@FXML
-	private Label chequingAccNumLabel;
+	private Label savingAccNumLabel;
 
     @FXML
     void generateAccountNumber(ActionEvent event) {
-
-    	
     	Random random = new Random();
-    	double chequingAccountNumber = random.nextInt(10000); 
+    	double savingAccountNumber = random.nextInt(10000); 
     	
-    	chequingAccNumLabel.setText(String.format(" Account Number : %.0f", chequingAccountNumber ));
+    	savingAccNumLabel.setText(String.format(" Account Number : %.0f", savingAccountNumber ));
 
     }
 
