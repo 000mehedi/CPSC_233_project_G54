@@ -5,8 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox prefHeight="302.0" prefWidth="359.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<VBox prefHeight="302.0" prefWidth="359.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.transferFundsController">
    <children>
       <Label text="Transfer Funds:" />
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -17,13 +16,17 @@
       <HBox alignment="TOP_CENTER" prefHeight="36.0" prefWidth="359.0">
          <children>
             <Label text="From              " />
-            <ChoiceBox prefWidth="150.0" />
+            <ChoiceBox fx:id="fromDropdown" prefWidth="150.0">
+          
+         
+            </ChoiceBox>
+            
          </children>
       </HBox>
       <HBox alignment="TOP_CENTER" prefHeight="36.0" prefWidth="359.0">
          <children>
             <Label text="To                " />
-            <ChoiceBox prefWidth="150.0" />
+            <ChoiceBox fx:id="toDropdown" prefWidth="150.0" />
          </children>
       </HBox>
       <HBox alignment="TOP_CENTER" prefHeight="36.0" prefWidth="359.0">
