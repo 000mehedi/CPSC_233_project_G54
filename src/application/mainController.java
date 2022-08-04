@@ -9,11 +9,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
+
 import javafx.scene.layout.VBox;
 
 import javafx.stage.Stage;
-import javafx.stage.Window;
+
 
 public class mainController {
 	private Stage stage;
