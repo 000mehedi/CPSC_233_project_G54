@@ -1,0 +1,20 @@
+<<<<<<< HEAD
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="491.0" prefWidth="464.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label text="Welcome to CIBC" />
+      <Button mnemonicParsing="false" prefHeight="175.0" prefWidth="219.0" text="Create New Account" />
+      <Button mnemonicParsing="false" prefHeight="175.0" prefWidth="219.0" text="Deposit Funds" />
+      <Button mnemonicParsing="false" prefHeight="175.0" prefWidth="219.0" text="Withdraw Funds" />
+      <Button mnemonicParsing="false" prefHeight="175.0" prefWidth="219.0" text="My Account" />
+      <Button mnemonicParsing="false" prefHeight="175.0" prefWidth="219.0" text="Quit" />
+   </children>
+</VBox>
+>>>>>>> mahira-dev
