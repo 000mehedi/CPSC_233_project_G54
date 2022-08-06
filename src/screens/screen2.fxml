@@ -9,17 +9,17 @@
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label text="Good to hear that you're creating a new account" />
+            <Label fx:id="title" text="Good to hear that you're creating a new account" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#createSavingsAccount" text="Savings Account" />
+            <Button fx:id="createSavingsAccount" mnemonicParsing="false" onAction="#createSavingsAccount" text="Savings Account" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#createChequingAccount" text="Chequing Account" />
+            <Button fx:id="createChequingAccount" mnemonicParsing="false" onAction="#createChequingAccount" text="Chequing Account" />
          </children>
       </HBox>
    </children>
