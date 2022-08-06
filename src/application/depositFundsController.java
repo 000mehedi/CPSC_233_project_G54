@@ -1,44 +1,29 @@
 package application;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
+import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 
-public class depositFundsController  {
-
-    @FXML
-    private TextField amount;
-
-    @FXML
-    private Label label;
-
-    @FXML
-    private ChoiceBox<String> accountChoicebox;
-    accountChoicebox.getItems().add("Apples");
-    
-  
-    
-
-    @FXML
-    private Label label2;
-
-    @FXML
-    private Label label3;
-
-    @FXML
-    void getAmount(ActionEvent event) {
-
-    }
-
-    @FXML
-    void doneDeposit(ActionEvent event) {
-
-    }
-
+public class depositFundsController implements Initializable {
 	
+	
+	@FXML
+	private Label myLabel;
+	
+	@FXML
+	private ChoiceBox<String> accountChoiceBox;
+	
+	private String[] accountType = {"Chequing Account", "Savings Account"};
 
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+
+		accountChoiceBox.getItems().addAll(accountType);
+		
+	}
+	
 }
