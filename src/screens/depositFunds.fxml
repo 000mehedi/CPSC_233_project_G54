@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -7,19 +8,23 @@
 
 <VBox alignment="CENTER" prefHeight="374.0" prefWidth="436.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.depositFundsController">
    <children>
-      <Label text="Deposit Funds:" />
+      <Label fx:id="label" text="Deposit Funds:" />
       <HBox prefHeight="100.0" prefWidth="200.0" />
-      <Label fx:id="myLabel" text="Select Account:" />
-      <ChoiceBox fx:id="accountChoiceBox" prefWidth="150.0" />
+      <Label fx:id="label2" text="Select Account:" />
+      <ChoiceBox fx:id="accountChoicebox" mouseTransparent="true" opacity="0.17" prefWidth="150.0">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+            
+         </cursor></ChoiceBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label text="Enter Amount:      " />
-            <TextField />
+            <Label fx:id="label3" text="Select Amount:      " />
+            <TextField fx:id="amount" onAction="#getAmount" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" text="Deposit" />
+            <Button mnemonicParsing="false" onAction="#doneDeposit" text="Deposit" />
          </children>
       </HBox>
    </children>
