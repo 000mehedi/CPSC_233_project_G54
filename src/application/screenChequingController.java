@@ -16,7 +16,7 @@ public class screenChequingController {
 
     	
     	Random random = new Random();
-    	double chequingAccountNumber = random.nextInt(10000); 
+    	int chequingAccountNumber = random.nextInt(10000); 
     	
     	chequingAccNumLabel.setText(String.format(" Account Number : %.0f", chequingAccountNumber ));
 

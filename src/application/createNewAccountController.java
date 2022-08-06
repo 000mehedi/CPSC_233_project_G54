@@ -12,7 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class screen2Controller {
+public class createNewAccountController {
 	private Stage stage;
 	private Scene scene;
 

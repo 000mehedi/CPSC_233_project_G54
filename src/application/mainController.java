@@ -34,7 +34,7 @@ public class mainController {
     @FXML
     void depositFunds(ActionEvent event) throws IOException {
     	FXMLLoader loader = new FXMLLoader();
-    	VBox root = loader.load(new FileInputStream("src/screens/screen3.fxml"));
+    	VBox root = loader.load(new FileInputStream("src/screens/depositFunds.fxml"));
     	stage = (Stage)((Node)event.getSource()).getScene().getWindow();
     	scene = new Scene(root);
     	stage.setScene(scene);
