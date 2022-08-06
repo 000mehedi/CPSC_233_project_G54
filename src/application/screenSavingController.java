@@ -14,9 +14,9 @@ public class screenSavingController {
     @FXML
     void generateAccountNumber(ActionEvent event) {
     	Random random = new Random();
-    	double savingAccountNumber = random.nextInt(10000); 
+    	int savingAccountNumber = random.nextInt(10000); 
     	
-    	savingAccNumLabel.setText(String.format(" Account Number : %.0f", savingAccountNumber ));
+    	savingAccNumLabel.setText(String.format(" Account Number : %d", savingAccountNumber ));
 
     }
 
