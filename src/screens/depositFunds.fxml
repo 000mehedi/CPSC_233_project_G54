@@ -9,11 +9,11 @@
    <children>
       <Label text="Deposit Funds:" />
       <HBox prefHeight="100.0" prefWidth="200.0" />
-      <Label text="Select Account:" />
-      <ChoiceBox prefWidth="150.0" />
+      <Label fx:id="myLabel" text="Select Account:" />
+      <ChoiceBox fx:id="accountChoiceBox" prefWidth="150.0" />
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label text="Select Amount:      " />
+            <Label text="Enter Amount:      " />
             <TextField />
          </children>
       </HBox>
