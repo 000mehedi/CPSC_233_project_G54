@@ -1,3 +1,5 @@
+// ABSTRACT CLASS
+
 package application;
 
 public abstract class Account{
@@ -18,6 +20,7 @@ public abstract class Account{
 		
 	}
 	
+	// GETTER
 	public double getChequingAccountBalance() {
 		return this.chequingAccountBalance;
 		
