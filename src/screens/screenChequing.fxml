@@ -20,7 +20,7 @@
                               <Insets top="30.0" />
                            </padding>
                         </Label>
-                        <TextField prefHeight="27.0" prefWidth="115.0">
+                        <TextField fx:id="chequingAccountName" prefHeight="27.0" prefWidth="115.0">
                            <VBox.margin>
                               <Insets top="20.0" />
                            </VBox.margin>
@@ -42,7 +42,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="119.0" prefWidth="276.0">
          <children>
-            <Button mnemonicParsing="false" text="Done">
+            <Button mnemonicParsing="false" onAction="#doneChequingAccount" text="Done">
                <HBox.margin>
                   <Insets bottom="1.0" right="10.0" top="10.0" />
                </HBox.margin>
