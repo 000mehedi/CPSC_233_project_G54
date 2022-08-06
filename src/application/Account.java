@@ -36,7 +36,11 @@ public abstract class Account{
 	public abstract void depositFundsController(double chequingAccountBalance, double savingsAccountBalance);
 	
 	public abstract void withdrawFundsController(double chequingAccountBalance);
+	
+	public abstract void transferFundsContoller(double chequingAccountBalance, double savingsAccountbalance);
+	
+	public abstract void myAccountsController(int chequingAccountNumber, int savingsAccountNumber, double chequingAccountBalance, double savingsAccountBalance);
 		
-
+	public abstract void quitController();
 	
 }

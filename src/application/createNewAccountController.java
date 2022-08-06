@@ -1,11 +1,14 @@
 package application;
 
-import java.io.FileInputStream;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -15,6 +18,15 @@ import javafx.stage.Stage;
 public class createNewAccountController {
 	private Stage stage;
 	private Scene scene;
+	   @FXML
+	    private Button createSavingsAccount;
+
+	    @FXML
+	    private Button createChequingAccount;
+
+	    @FXML
+	    private Label title;
+
 
     @FXML
     public void createSavingsAccount(ActionEvent event) throws IOException {
