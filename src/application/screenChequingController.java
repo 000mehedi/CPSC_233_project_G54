@@ -13,12 +13,10 @@ public class screenChequingController {
 
     @FXML
     void generateAccountNumber(ActionEvent event) {
-
-    	
     	Random random = new Random();
     	int chequingAccountNumber = random.nextInt(10000); 
     	
-    	chequingAccNumLabel.setText(String.format(" Account Number : %.0f", chequingAccountNumber ));
+    	chequingAccNumLabel.setText(String.format(" Account Number : %d", chequingAccountNumber ));
 
     }
 
