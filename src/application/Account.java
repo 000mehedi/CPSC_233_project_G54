@@ -4,8 +4,8 @@ package application;
 
 public abstract class Account{
 	
-	private int accountNumber;
-	private String name;
+	protected int accountNumber;
+	protected String name;
 	
 	protected double chequingAccountBalance;
 	protected double savingsAccountBalance;

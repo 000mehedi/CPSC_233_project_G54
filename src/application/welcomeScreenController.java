@@ -30,7 +30,7 @@ public class welcomeScreenController {
     void goToLoginPage(ActionEvent event) throws IOException {
     	
     	FXMLLoader loader = new FXMLLoader();
-    	VBox root = loader.load(new FileInputStream("src/screens/login.fxml"));
+    	VBox root = loader.load(new FileInputStream("src/screens/loginScreen.fxml"));
     	stage = (Stage)((Node)event.getSource()).getScene().getWindow();
     	scene = new Scene(root);
     	stage.setScene(scene);

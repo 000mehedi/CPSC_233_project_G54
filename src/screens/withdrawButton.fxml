@@ -20,9 +20,10 @@
       <Label text="Enter Amount:" />
       <HBox alignment="CENTER" prefHeight="75.0" prefWidth="316.0">
          <children>
-            <TextField />
+            <TextField fx:id="withdrawField" />
          </children>
       </HBox>
-      <Button mnemonicParsing="false" text="Withdraw" />
+      <Button mnemonicParsing="false" onAction="#withdrawButton" text="Withdraw" />
+      <Button mnemonicParsing="false" onAction="#backToAccountScreen" text="Back to Account Screen" />
    </children>
 </VBox>

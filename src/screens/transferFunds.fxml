@@ -32,9 +32,10 @@
       <HBox alignment="TOP_CENTER" prefHeight="36.0" prefWidth="359.0">
          <children>
             <Label text="Amount        " />
-            <TextField prefHeight="25.0" prefWidth="117.0" />
+            <TextField fx:id="amountField" prefHeight="25.0" prefWidth="117.0" />
          </children>
       </HBox>
       <Button mnemonicParsing="false" onAction="#backToAccountScreen" text="Back to Account Screen" />
+      <Button mnemonicParsing="false" onAction="#transferButton" text="Done" />
    </children>
 </VBox>

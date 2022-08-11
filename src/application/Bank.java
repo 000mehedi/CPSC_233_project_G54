@@ -1,9 +1,11 @@
 package application;
 
+import java.io.BufferedWriter;
 //https://www.w3schools.com/java/java_files_create.asp
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Bank {
@@ -29,39 +31,44 @@ public class Bank {
 	    try {
 	        File myObj = new File("accountDatabase.txt");
 	        if (myObj.createNewFile()) {
-	          System.out.println("File created: " + myObj.getName());
-	            try {
-	                FileWriter myWriter = new FileWriter("filename.txt");
-	                myWriter.write("Account Number:" + anAccount.getAccountNumber() +"/n");
-	                myWriter.write("Account Name:" + anAccount.getName() +"/n");
-	                myWriter.write("Chequing Balance:" + anAccount.getChequingAccountBalance() +"/n");
-	                myWriter.write("Savings Balance:" + anAccount.getSavingsAccountBalance() +"/n");
-	                myWriter.write("/n");
-	                
-	                myWriter.close();
-	              } catch (IOException e) {
-	                System.out.println("An error occurred.");
-	                e.printStackTrace();
-	              }
+		            	System.out.println("File created: " + myObj.getName());
+		            	
+			            FileWriter myWriter = new FileWriter("accountDatabase.txt");
+			            BufferedWriter bw = new BufferedWriter(myWriter);
+			            PrintWriter out = new PrintWriter(bw);
+			            out.println("Account Name:" + anAccount.getName());
+			            out.println("Account Number:" + anAccount.getAccountNumber());
+			            out.println("Chequing Balance:" + anAccount.getChequingAccountBalance());
+			            out.println("Savings Balance:" + anAccount.getSavingsAccountBalance());
+			            out.println();
+			            
+			            out.close();
+			            bw.close();
+			            myWriter.close();
+
+	              
 	        } else {
-	            try {
-	                FileWriter myWriter = new FileWriter("filename.txt");
-	                myWriter.write("Account Number:" + anAccount.getAccountNumber() +"/n");
-	                myWriter.write("Account Name:" + anAccount.getName() +"/n");
-	                myWriter.write("Chequing Balance:" + anAccount.getChequingAccountBalance() +"/n");
-	                myWriter.write("Savings Balance:" + anAccount.getSavingsAccountBalance() +"/n");
-	                myWriter.write("/n");
-	                
-	                myWriter.close();
-	              } catch (IOException e) {
-	                System.out.println("An error occurred.");
-	                e.printStackTrace();
-	              }
+	        	System.out.println("File already exists.");
+
+	        	// appending to the file
+	            FileWriter myWriter = new FileWriter("accountDatabase.txt",true);
+	            BufferedWriter bw = new BufferedWriter(myWriter);
+	            PrintWriter out = new PrintWriter(bw);
+	            out.println("Account Name:" + anAccount.getName());
+	            out.println("Account Number:" + anAccount.getAccountNumber());
+	            out.println("Chequing Balance:" + anAccount.getChequingAccountBalance());
+	            out.println("Savings Balance:" + anAccount.getSavingsAccountBalance());
+	            out.println();
+	            
+	            out.close();
+	            bw.close();
+	            myWriter.close();
 	        }
-	      } catch (IOException e) {
-	        System.out.println("An error occurred.");
-	        e.printStackTrace();
-	      }
+
+          } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+	      } 
 	}
 	
 	

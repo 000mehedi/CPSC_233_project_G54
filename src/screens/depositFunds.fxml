@@ -14,12 +14,13 @@
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Label text="Enter Amount:      " />
-            <TextField />
+            <TextField fx:id="amoField" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" text="Deposit" />
+            <Button mnemonicParsing="false" onAction="#backToAccountScreen" text="Back to Account Screen" />
+            <Button mnemonicParsing="false" onAction="#depositButton" text="Deposit" />
          </children>
       </HBox>
    </children>
