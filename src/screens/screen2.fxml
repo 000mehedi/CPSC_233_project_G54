@@ -9,18 +9,14 @@
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label fx:id="title" text="Good to hear that you're creating a new account" />
+            <Label text="Good to hear that you're creating a new account" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="createSavingsAccount" mnemonicParsing="false" onAction="#createSavingsAccount" text="Savings Account" />
+            <Button mnemonicParsing="false" onAction="#createAccount" text="Open Account" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Button fx:id="createChequingAccount" mnemonicParsing="false" onAction="#createChequingAccount" text="Chequing Account" />
-         </children>
-      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
    </children>
 </VBox>
