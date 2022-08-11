@@ -19,17 +19,7 @@ public class mainController {
 	private Stage stage;
 	private Scene scene;
 
-    @FXML
-    public void createNewAccount(ActionEvent event) throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-		VBox root = loader.load(new FileInputStream("src/screens/screen2.fxml"));
-    	stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-    	scene = new Scene(root);
-    	stage.setScene(scene);
-    	stage.show();
-    	
-		
-    }
+
 
     @FXML
     void depositFunds(ActionEvent event) throws IOException {

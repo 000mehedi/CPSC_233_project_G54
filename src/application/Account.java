@@ -4,17 +4,17 @@ package application;
 
 public abstract class Account{
 	
-	private int chequingAccountNumber;
-	private int savingsAccountNumber;
+	private int accountNumber;
+	private String name;
 	
 	protected double chequingAccountBalance;
 	protected double savingsAccountBalance;
 	
 	public Account() {}
 	
-	public Account(int chequingAccountNumber,int savingsAccountNumber) {
-		this.chequingAccountNumber = chequingAccountNumber;
-		this.savingsAccountNumber = savingsAccountNumber;
+	public Account(String givenName, int givenAccNumber) {
+		this.name = givenName;
+		this.accountNumber = givenAccNumber;
 		chequingAccountBalance = 0;
 		savingsAccountBalance = 0;
 		
@@ -28,17 +28,26 @@ public abstract class Account{
 	public double getSavingsAccountBalance() {
 		return this.savingsAccountBalance;
 	}
-	public int getChequingAccountNumber() {
-		return this.chequingAccountNumber;
+	public int getAccountNumber() {
+		return this.accountNumber;
 	}
-	public int getSavingsAccountNumber() {
-		return this.savingsAccountNumber;
+	public String getName() {
+		return this.name;
+	}
+	
+	public void setChequingBalance(double cheqBalance){
+		this.chequingAccountBalance = cheqBalance;
+	}
+	public void setSavingBalance(double savBalance){
+		this.savingsAccountBalance = savBalance;
 	}
 	
 	
-	public abstract void depositFundsController(double chequingAccountBalance, double savingsAccountBalance);
+	public abstract void deposit(double chequingAccountBalance, double savingsAccountBalance);
 	
-	public abstract void withdrawFundsController(double chequingAccountBalance);
+	public abstract void withdraw(double chequingAccountBalance);
+	
+	public abstract void transfer(double chequingAccountBalance, double savingsAccountBalance);
 		
 
 	

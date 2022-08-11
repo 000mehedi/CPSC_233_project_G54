@@ -14,13 +14,9 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#createSavingsAccount" text="Savings Account" />
+            <Button mnemonicParsing="false" onAction="#createAccount" text="Open Account" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#createChequingAccount" text="Chequing Account" />
-         </children>
-      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
    </children>
 </VBox>

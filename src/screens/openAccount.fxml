@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="413.0" prefWidth="276.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.screenSavingController">
+<VBox alignment="CENTER" prefHeight="413.0" prefWidth="276.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.openAccountController">
    <children>
       <HBox alignment="CENTER" prefHeight="153.0" prefWidth="276.0">
          <children>
@@ -20,7 +20,7 @@
                               <Insets top="30.0" />
                            </padding>
                         </Label>
-                        <TextField prefHeight="27.0" prefWidth="115.0">
+                        <TextField fx:id="savingsAccountName" prefHeight="27.0" prefWidth="115.0">
                            <VBox.margin>
                               <Insets top="20.0" />
                            </VBox.margin>
@@ -42,11 +42,16 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="119.0" prefWidth="276.0">
          <children>
-            <Button mnemonicParsing="false" text="Done">
-               <HBox.margin>
-                  <Insets bottom="1.0" right="10.0" top="10.0" />
-               </HBox.margin>
-            </Button>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="signUpLabel" alignment="TOP_CENTER" contentDisplay="CENTER">
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Button fx:id="doneSavingsAccount" mnemonicParsing="false" text="Done" />
+               </children>
+            </VBox>
          </children>
       </HBox>
    </children>

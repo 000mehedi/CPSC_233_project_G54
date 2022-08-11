@@ -16,10 +16,6 @@
          <font>
             <Font name="Calibri Bold" size="25.0" />
          </font></Label>
-      <Button mnemonicParsing="false" onAction="#createNewAccount" prefHeight="175.0" prefWidth="219.0" text="Create New Account">
-         <VBox.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </VBox.margin></Button>
       <Button mnemonicParsing="false" onAction="#depositFunds" prefHeight="175.0" prefWidth="219.0" text="Deposit Funds">
          <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

@@ -17,25 +17,18 @@ public class createNewAccountController {
 	private Scene scene;
 
     @FXML
-    public void createSavingsAccount(ActionEvent event) throws IOException {
+    public void createAccount(ActionEvent event) throws IOException {
     	FXMLLoader loader = new FXMLLoader();
-		VBox root = loader.load(new FileInputStream("src/screens/screenSavings.fxml"));
+		VBox root = loader.load(new FileInputStream("src/screens/openAccount.fxml"));
     	stage = (Stage)((Node)event.getSource()).getScene().getWindow();
     	scene = new Scene(root);
     	stage.setScene(scene);
     	stage.show();
+    	
+    	
 
     }
 
-    @FXML
-    void createChequingAccount(ActionEvent event) throws IOException {
-    	FXMLLoader loader = new FXMLLoader();
-		VBox root = loader.load(new FileInputStream("src/screens/screenChequing.fxml"));
-    	stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-    	scene = new Scene(root);
-    	stage.setScene(scene);
-    	stage.show();
 
-    }
 
 }
