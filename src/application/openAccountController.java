@@ -1,5 +1,7 @@
 package application;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -7,10 +9,32 @@ import java.util.Random;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class openAccountController {
+	
+	
+	private Stage stage;
+	private Scene scene;
+	
+    @FXML
+    public void backToWelcomeScreen(ActionEvent event) throws IOException {
+    	FXMLLoader loader = new FXMLLoader();
+		VBox root = loader.load(new FileInputStream("src/screens/mainScreen.fxml"));
+    	stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    	scene = new Scene(root);
+    	stage.setScene(scene);
+    	stage.show();
+    	
+    	
+
+    }
 	
 	@FXML
 	private Label savingAccNumLabel;
@@ -34,21 +58,12 @@ public class openAccountController {
     @FXML
     public void doneSavingsAccount(ActionEvent event) {
     	
-    	Map<String, Integer> m = new HashMap<>(); 
-    	
-    	String accountName =  savingsAccountName.getText();
-    	
-    	m.put(accountName, savingAccountNumber); 
-    	
-		for(Map.Entry<String, Integer> entry : m.entrySet() ) {
-			
-			String name = entry.getKey();
-			Integer accountNumber = entry.getValue();
-			System.out.println("Name: " + name + "\tElement: " + accountNumber);
+
 		  }  	
 		
-    }
+		
+}
     
 
 
-}
+

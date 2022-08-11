@@ -35,5 +35,6 @@
             <TextField prefHeight="25.0" prefWidth="117.0" />
          </children>
       </HBox>
+      <Button mnemonicParsing="false" onAction="#backToAccountScreen" text="Back to Account Screen" />
    </children>
 </VBox>
