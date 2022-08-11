@@ -48,7 +48,7 @@ public class mainController {
     void withdrawFunds(ActionEvent event) throws IOException {
 
     	FXMLLoader loader = new FXMLLoader();
-    	VBox root = loader.load(new FileInputStream("src/screens/screen4.fxml"));
+    	VBox root = loader.load(new FileInputStream("src/screens/withdrawButton.fxml"));
     	stage = (Stage)((Node)event.getSource()).getScene().getWindow();
     	scene = new Scene(root);
     	stage.setScene(scene);

@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 
 public class openAccountController {
 	
-	
+	private Bank aBank = new Bank();
 	private Stage stage;
 	private Scene scene;
 	
@@ -58,8 +58,10 @@ public class openAccountController {
     @FXML
     public void doneSavingsAccount(ActionEvent event) {
     	
-
-		  }  	
+    	String accountName = savingsAccountName.getText();
+    	businessAccount newBusAcc = new businessAccount(accountName, savingAccountNumber);
+    	aBank.addAccount(newBusAcc);
+    	}  	
 		
 		
 }

@@ -2,6 +2,16 @@ package application;
 
 // allows limited deposits and withdraws
 public class personalAccount extends Account {
+	
+	public personalAccount() {}
+	
+	public personalAccount(String givenName, int givenAccNumber) {
+		this.name = givenName;
+		this.accountNumber = givenAccNumber;
+		chequingAccountBalance = 0;
+		savingsAccountBalance = 0;
+		
+	}
 
 	@Override
 	public void deposit(double chequingAccountBalance, double savingsAccountBalance) {
