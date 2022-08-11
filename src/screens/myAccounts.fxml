@@ -6,19 +6,18 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox prefHeight="180.0" prefWidth="353.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<VBox prefHeight="180.0" prefWidth="353.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.myAccountController">
    <children>
       <BorderPane prefHeight="285.0" prefWidth="350.0">
          <left>
-            <VBox prefHeight="193.0" prefWidth="189.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="135.0" prefWidth="139.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" text="Amount Deposited : ">
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Chequing Balance : ">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label text="Current Balance : ">
+                  <Label text="Savings Balance : ">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
@@ -27,12 +26,25 @@
             </VBox>
          </left>
          <right>
-            <VBox prefHeight="285.0" prefWidth="164.0" BorderPane.alignment="CENTER" />
+            <VBox prefHeight="285.0" prefWidth="164.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="cheqField" text="Chequing Placeholder">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="savField" text="Saving Placeholder">
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
+                  </Label>
+               </children></VBox>
          </right>
       </BorderPane>
       <HBox alignment="CENTER" prefHeight="53.0" prefWidth="353.0">
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Done " textAlignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#showCurrentBalance" text="Show current balance" />
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#backToAccountScreen" text="Back to account screen" textAlignment="CENTER">
                <HBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </HBox.margin>

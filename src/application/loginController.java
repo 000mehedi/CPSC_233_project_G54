@@ -45,11 +45,13 @@ public class loginController {
     	      System.out.println("Absolute path: " + myObj.getAbsolutePath());
     	      while (myReader.hasNextLine()) {
     	        String data = myReader.nextLine();
-    	        String name1 = data;
     	        data = data.replace("\n", "").replace("\r", "");
     	        if(data.equals(""))
     	        {
-    	        	data = myReader.nextLine();
+      	        	if(myReader.hasNextLine())
+      	        		data = myReader.nextLine();
+      	        	else
+      	        		break;
         	        data = data.replace("\n", "").replace("\r", "");
     	        }
     	        System.out.println(data);
@@ -60,6 +62,7 @@ public class loginController {
 
     	        if(arrOfName[1].equals(nameField.getText()))
     	        {
+    	        	String name1 = arrOfName[0] + ":" + arrOfName[1];
     	        	String accNumberLine = myReader.nextLine();
     	        	String accNo = accNumberLine; 
     	        	accNumberLine = accNumberLine.replace("\n", "").replace("\r", "");
@@ -90,7 +93,7 @@ public class loginController {
         	    			            myWriter.close();
 
         	    	              
-        	    	      
+        	    	        
 
         	              } catch (IOException e) {
         	                System.out.println("An error occurred.");
