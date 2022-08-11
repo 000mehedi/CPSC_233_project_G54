@@ -1,10 +1,9 @@
-Account Name:div
-Account Number:5941
-Chequing Balance:0.0
-Savings Balance:0.0
-
-Account Name:mahira
-Account Number:1372
-Chequing Balance:0.0
+Account Name:divbaby
+Account Number:9193
+Chequing Account:800.0
+Savings Account:200.0
+Account Name:mahi
+Account Number:5627
+Chequing Balance:120.0
 Savings Balance:0.0
 
