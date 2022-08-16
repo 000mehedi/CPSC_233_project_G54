@@ -74,26 +74,16 @@ public abstract class Account{
 		
 		this.accountNumber = anAccNo;
 	}
-
-	
-
 	
 	public abstract void transfer(double chequingAccountBalance, double savingsAccountBalance);
 
 	public abstract void deposit(TextField amoField, ChoiceBox<String> accountChoiceBox) throws IOException 	;
 
-	public void withdraw(TextField withdrawField) throws IOException {
-		// TODO Auto-generated method stub
-		
+	public void withdraw(TextField withdrawField) throws IOException {	
 	}
 
 	public void transfer(TextField amountField, ChoiceBox<String> fromDropdown, ChoiceBox<String> toDropdown)
 			throws IOException {
-		// TODO Auto-generated method stub
-		
 	}	
-	
-		
-
 	
 }

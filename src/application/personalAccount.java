@@ -51,16 +51,28 @@ public class personalAccount extends Account {
   	        // checking if the current row is emplty
   	        System.out.println(accountChoiceBox.getValue());
   	        if("Chequing Balance".equals(accountChoiceBox.getValue()))
-  	        {
-  	        	double newCheqTotal = Double.parseDouble(arrOfCAccount[1]) + Double.parseDouble(amoField.getText());
-  	        	cheq = "Chequing Balance:" + Double.toString(newCheqTotal);
   	        	
+  	        { 	        	
+  	        	double newCheqTotal;
+  	        	
+  	        	if((newCheqTotal = Double.parseDouble(arrOfCAccount[1]) + Double.parseDouble(amoField.getText())) < 1000) 
+  	        	{
+  	        	newCheqTotal = Double.parseDouble(arrOfCAccount[1]) + Double.parseDouble(amoField.getText());
+  	        	cheq = "Chequing Balance:" + Double.toString(newCheqTotal); 	        	
+  	        	}
+  	        	
+  	        	else 
+  	        	{
+  	        		System.out.println("You can't deposit over $1000 in a 'Personal Account'.");
+  	        	}
   	        }
-      	        else {
-      	        	System.out.println("cheq not present");
-      	        }
-    	        	String savAccountline = myReader.nextLine();
-    	        	String sav = savAccountline;
+      	    else 
+      	      {
+      	        System.out.println("cheq not present");
+      	       }
+    	        	
+  	        	String savAccountline = myReader.nextLine();
+    	        String sav = savAccountline;
   	        	savAccountline = savAccountline.replace("\n", "").replace("\r", "");
       	        String[] arrOfSAccount = savAccountline.split(":", 2);
       	        for (String a : arrOfSAccount)
@@ -74,9 +86,7 @@ public class personalAccount extends Account {
       	        else {
       	        	System.out.println("Sav not present");
       	        }
-  	        
-      	        
-  	      
+ 
   	      myReader.close();
   	      
 	            FileWriter myWriter = new FileWriter("currentAccount.txt");
@@ -99,8 +109,6 @@ public class personalAccount extends Account {
   	
 		  }  	
 		
-	
-
 	@Override
 	public void withdraw(TextField withdrawField) throws IOException {
 		// TODO Auto-generated method stub
@@ -255,10 +263,6 @@ public class personalAccount extends Account {
 		// TODO Auto-generated method stub
 		
 	}  
-		
-	
-	
-
 		
 		
 	}

@@ -1,17 +1,12 @@
 package application;
 
-
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Scanner;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -37,8 +32,6 @@ public class depositFundsController implements Initializable {
     	scene = new Scene(root);
     	stage.setScene(scene);
     	stage.show();
-    	
-    	
 
     }
 	
@@ -47,7 +40,6 @@ public class depositFundsController implements Initializable {
 	
 	@FXML
 	private Label myLabel;
-	
 
 	private personalAccount perAcc;
 	
@@ -79,8 +71,7 @@ public class depositFundsController implements Initializable {
   	        data = data.replace("\n", "").replace("\r", "");
   	      String name1 = data;
   	      arrOfname1 = name1.split(":", 5);
-  	        
-  	        
+  	               
   	        data = myReader.nextLine();
   	      data = data.replace("\n", "").replace("\r", "");
   	    String accNo1 = data;
