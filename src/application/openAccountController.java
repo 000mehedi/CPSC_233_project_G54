@@ -33,7 +33,6 @@ public class openAccountController {
     	stage.show();
     	
     	
-
     }
 	
 	@FXML
@@ -56,7 +55,7 @@ public class openAccountController {
     }
     
     @FXML
-    public void doneSavingsAccount(ActionEvent event) {
+    public void doneBusinessAccount(ActionEvent event) {
     	
     	String accountName = savingsAccountName.getText();
     	businessAccount newBusAcc = new businessAccount(accountName, savingAccountNumber);
@@ -64,8 +63,19 @@ public class openAccountController {
     	}  	
 		
 		
+
+
+	@FXML
+	public void donePersonalAccount(ActionEvent event) {
+		
+		String accountName = savingsAccountName.getText();
+		personalAccount newPersonalAcc = new personalAccount(accountName, savingAccountNumber);
+		aBank.addAccount(newPersonalAcc);
+		}  	
+		
+		
 }
-    
+
 
 
 

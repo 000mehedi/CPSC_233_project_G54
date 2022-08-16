@@ -1,22 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="491.0" prefWidth="464.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.createNewAccountController">
+<VBox prefHeight="303.0" prefWidth="464.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.createNewAccountController">
    <children>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <VBox prefHeight="105.0" prefWidth="464.0">
          <children>
-            <Label text="Good to hear that you're creating a new account" />
+            <HBox prefHeight="100.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: black;">
+         <children>
+            <Label alignment="CENTER" prefHeight="20.0" prefWidth="425.0" text="Hello, great to hear that you're creating a new account with us!" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="15.0" />
+               </font></Label>
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#createAccount" text="Open Account" />
+            <Button mnemonicParsing="false" onAction="#createAccount" prefHeight="37.0" prefWidth="145.0" style="-fx-background-color: black;" text="Open Account" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+               <effect>
+                  <InnerShadow color="#130590" />
+               </effect></Button>
          </children>
+         <effect>
+            <InnerShadow />
+         </effect>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
    </children>
 </VBox>
