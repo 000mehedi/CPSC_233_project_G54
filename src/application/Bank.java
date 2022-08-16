@@ -36,10 +36,14 @@ public class Bank {
 			            FileWriter myWriter = new FileWriter("accountDatabase.txt");
 			            BufferedWriter bw = new BufferedWriter(myWriter);
 			            PrintWriter out = new PrintWriter(bw);
+			            
 			            out.println("Account Name:" + anAccount.getName());
 			            out.println("Account Number:" + anAccount.getAccountNumber());
 			            out.println("Chequing Balance:" + anAccount.getChequingAccountBalance());
 			            out.println("Savings Balance:" + anAccount.getSavingsAccountBalance());
+			            out.println("Account Type:" + anAccount.getType());
+			            
+// add account type 
 			            out.println();
 			            
 			            out.close();
@@ -58,6 +62,7 @@ public class Bank {
 	            out.println("Account Number:" + anAccount.getAccountNumber());
 	            out.println("Chequing Balance:" + anAccount.getChequingAccountBalance());
 	            out.println("Savings Balance:" + anAccount.getSavingsAccountBalance());
+	            out.println("Account Type:" + anAccount.getType());
 	            out.println();
 	            
 	            out.close();

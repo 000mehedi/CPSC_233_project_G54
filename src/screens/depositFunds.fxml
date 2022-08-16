@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="374.0" prefWidth="436.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.depositFundsController">
+<VBox alignment="CENTER" prefHeight="374.0" prefWidth="436.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.depositFundsController">
    <children>
-      <Label text="Deposit Funds:" />
-      <HBox prefHeight="100.0" prefWidth="200.0" />
-      <Label fx:id="myLabel" text="Select Account:" />
-      <ChoiceBox fx:id="accountChoiceBox" prefWidth="150.0" />
+      <Label text="Deposit Funds:">
+         <VBox.margin>
+            <Insets bottom="30.0" />
+         </VBox.margin>
+         <font>
+            <Font name="Calibri Bold" size="18.0" />
+         </font></Label>
+      <Label fx:id="myLabel" text="Select Account:">
+         <padding>
+            <Insets bottom="5.0" top="5.0" />
+         </padding></Label>
+      <ChoiceBox fx:id="accountChoiceBox" prefWidth="150.0" style="-fx-background-color: white;">
+         <effect>
+            <InnerShadow color="#b2afaf" />
+         </effect></ChoiceBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Label text="Enter Amount:      " />
@@ -19,8 +33,14 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#backToAccountScreen" text="Back to Account Screen" />
-            <Button mnemonicParsing="false" onAction="#depositButton" text="Deposit" />
+            <Button mnemonicParsing="false" onAction="#backToAccountScreen" style="-fx-background-color: black;" text="Back to Account Screen" textFill="WHITE">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin></Button>
+            <Button mnemonicParsing="false" onAction="#depositButton" prefHeight="25.0" prefWidth="57.0" style="-fx-background-color: black;" text="Deposit" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="12.0" />
+               </font></Button>
          </children>
       </HBox>
    </children>

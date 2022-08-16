@@ -33,8 +33,6 @@ public class myAccountController {
     	stage.setScene(scene);
     	stage.show();
     	
-    	
-
     }
     
 	@FXML
@@ -70,7 +68,6 @@ public class myAccountController {
     	        	String cheqTotal = arrOfCAccount[1];
     	        	cheqField.setText(cheqTotal);
     	        	
-  
       	        	String savAccountline = myReader.nextLine();
       	        	String sav = savAccountline;
     	        	savAccountline = savAccountline.replace("\n", "").replace("\r", "");
@@ -80,20 +77,15 @@ public class myAccountController {
 
         	        	String savTotal = arrOfSAccount[1];
         	        	savField.setText(savTotal);
-        	        	
-        	        
-
-    	        
-        	        
     	      
     	      myReader.close();
-    	      
+   	      
     	      
     	    } catch (FileNotFoundException e) {
     	      System.out.println("An error occurred.");
     	      e.printStackTrace();
     	    }
-    	
+   	
     	
 		  } 
 
