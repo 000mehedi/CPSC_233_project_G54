@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="302.0" prefWidth="359.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.transferFundsController">
+<VBox prefHeight="302.0" prefWidth="359.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.transferFundsController">
    <children>
-      <Label text="Transfer Funds:" />
+      <Label alignment="CENTER" contentDisplay="CENTER" text="Transfer Funds:">
+         <VBox.margin>
+            <Insets bottom="10.0" left="140.0" right="10.0" top="10.0" />
+         </VBox.margin></Label>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label text="Label" />
+            <Label />
          </children>
       </HBox>
       <HBox alignment="TOP_CENTER" prefHeight="36.0" prefWidth="359.0">
@@ -35,7 +39,14 @@
             <TextField fx:id="amountField" prefHeight="25.0" prefWidth="117.0" />
          </children>
       </HBox>
-      <Button mnemonicParsing="false" onAction="#backToAccountScreen" text="Back to Account Screen" />
-      <Button mnemonicParsing="false" onAction="#transferButton" text="Done" />
+      <Button mnemonicParsing="false" onAction="#transferButton" text="Done">
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin></Button>
+      <Button mnemonicParsing="false" onAction="#backToAccountScreen" text="Back to Account Screen">
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+      </Button>
    </children>
 </VBox>

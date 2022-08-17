@@ -37,13 +37,14 @@ public class transferFundsController implements Initializable   {
     	scene = new Scene(root);
     	stage.setScene(scene);
     	stage.show();
-    	
-    	
 
     }
 
 	@FXML
 	private TextField amountField;
+	
+	private personalAccount perAcc;
+	
     @FXML
     private ChoiceBox<String> toDropdown;
     
@@ -60,98 +61,150 @@ public class transferFundsController implements Initializable   {
 	
 		
 		}
-	
-	
+
     @FXML
     public void transferButton(ActionEvent event) throws FileNotFoundException, IOException {
     	
-    	try {
-    	      File myObj = new File("currentAccount.txt");
-    	      Scanner myReader = new Scanner(myObj);
-    	      System.out.println("Absolute path: " + myObj.getAbsolutePath());
+    	String[] arrOfname1 = null;
+    	String[] arrOfAccNo = null;
+    	String[] arrOfCAccount = null;
+		String[] arrOfSAccount = null;
+		try {
+  	      File myObj = new File("currentAccount.txt");
+  	      Scanner myReader = new Scanner(myObj);
+  	      System.out.println("Absolute path: " + myObj.getAbsolutePath());
 
-    	        String data = myReader.nextLine();
-    	        String name1 = data;
-    	        
-    	        data = myReader.nextLine();
-    	        String accNo1 = data;
-    	        
-    	        data = myReader.nextLine();
-    	        String cheq = data;
-    	        
-    	        data = data.replace("\n", "").replace("\r", "");
-    	        if(data.equals(""))
-    	        {
-    	        	data = myReader.nextLine();
-        	        data = data.replace("\n", "").replace("\r", "");
-    	        }
-    	        System.out.println(data);
-    	        String[] arrOfCAccount = data.split(":", 5);
-    	        for (String a : arrOfCAccount)
-    	            System.out.println(a);
-    	        // checking if the current row is emplty
-    	        
-  	        	String savAccountline = myReader.nextLine();
-  	        	String sav = savAccountline;
-	        	savAccountline = savAccountline.replace("\n", "").replace("\r", "");
-    	        String[] arrOfSAccount = savAccountline.split(":", 2);
-    	        for (String a : arrOfSAccount)
-    	            System.out.println(a);
+  	      	String data = myReader.nextLine();
+  	        
+  	        data = data.replace("\n", "").replace("\r", "");
+  	      String name1 = data;
+  	      arrOfname1 = name1.split(":", 5);
+  	        
+  	        
+  	        data = myReader.nextLine();
+  	      data = data.replace("\n", "").replace("\r", "");
+  	    String accNo1 = data;
+  	    arrOfAccNo = accNo1.split(":", 5);
+  	        
+  	        data = myReader.nextLine();
+  	        
+  	      data = data.replace("\n", "").replace("\r", "");
+  	    String cheq = data;
+  	    arrOfCAccount = cheq.split(":", 5);
+  	      
+         	String savAccountline = myReader.nextLine();
+        	
+      	savAccountline = savAccountline.replace("\n", "").replace("\r", "");
+      	String sav = savAccountline;
+      	arrOfSAccount = savAccountline.split(":", 2);
+	        
+	        
+  	    } catch (FileNotFoundException e) {
+	      System.out.println("An error occurred.");
+	      e.printStackTrace();
+	    }
+	        
 
-    	        if("Chequing".equals(fromDropdown.getValue()) && "Savings".equals(toDropdown.getValue()))
-    	        {
-    	        	double newCheqTotal = Double.parseDouble(arrOfCAccount[1]) - Double.parseDouble(amountField.getText());
-    	        	cheq = "Chequing Account:" + Double.toString(newCheqTotal);
-    	        	
-    	        	double newSavTotal = Double.parseDouble(arrOfSAccount[1]) + Double.parseDouble(amountField.getText());
-    	        	sav = "Savings Account:" + Double.toString(newSavTotal);
-    	        	
-    	        }
-        	        else {
-        	        	System.out.println("cheq not present");
-        	        }
-  
-    	        if("Chequing".equals(toDropdown.getValue()) && "Savings".equals(fromDropdown.getValue()))
-    	        {
-    	        	double newCheqTotal = Double.parseDouble(arrOfCAccount[1]) + Double.parseDouble(amountField.getText());
-    	        	cheq = "Chequing Account:" + Double.toString(newCheqTotal);
-    	        	
-    	        	double newSavTotal = Double.parseDouble(arrOfSAccount[1]) - Double.parseDouble(amountField.getText());
-    	        	sav = "Savings Account:" + Double.toString(newSavTotal);
-    	        	
-    	        }
-        	        else {
-        	        	System.out.println("Sav not present");
-        	        }
-    	        
-        	        
-    	      
-    	      myReader.close();
-    	      
-	            FileWriter myWriter = new FileWriter("currentAccount.txt");
-	            BufferedWriter bw = new BufferedWriter(myWriter);
-	            PrintWriter out = new PrintWriter(bw);
-	            out.println(name1);
-	            out.println(accNo1);
-	            out.println(cheq);
-	            out.println(sav);
-	            
-	            out.close();
-	            bw.close();
-	            myWriter.close();
-    	      
-    	    } catch (FileNotFoundException e) {
-    	      System.out.println("An error occurred.");
-    	      e.printStackTrace();
-    	    }
-    	
-    	
-		  }  
+		perAcc = new personalAccount(arrOfname1[1], Integer.parseInt(arrOfAccNo[1]));
+		perAcc.setChequingBalance(Double.parseDouble(arrOfCAccount[1]));
+		perAcc.setSavingBalance(Double.parseDouble(arrOfSAccount[1]));
 		
-	}
+		perAcc.transfer(amountField, fromDropdown, toDropdown);
+		
+		
+}
+}
 	
-	
-	
-	
-
-
+//    @FXML
+//    public void transferButton(ActionEvent event) throws FileNotFoundException, IOException {
+//    	
+//    	try {
+//    	      File myObj = new File("currentAccount.txt");
+//    	      Scanner myReader = new Scanner(myObj);
+//    	      System.out.println("Absolute path: " + myObj.getAbsolutePath());
+//
+//    	        String data = myReader.nextLine();
+//    	        String name1 = data;
+//    	        
+//    	        data = myReader.nextLine();
+//    	        String accNo1 = data;
+//    	        
+//    	        data = myReader.nextLine();
+//    	        String cheq = data;
+//    	        
+//    	        data = data.replace("\n", "").replace("\r", "");
+//    	        if(data.equals(""))
+//    	        {
+//    	        	data = myReader.nextLine();
+//        	        data = data.replace("\n", "").replace("\r", "");
+//    	        }
+//    	        System.out.println(data);
+//    	        String[] arrOfCAccount = data.split(":", 5);
+//    	        for (String a : arrOfCAccount)
+//    	            System.out.println(a);
+//    	        // checking if the current row is emplty
+//    	        
+//  	        	String savAccountline = myReader.nextLine();
+//  	        	String sav = savAccountline;
+//	        	savAccountline = savAccountline.replace("\n", "").replace("\r", "");
+//    	        String[] arrOfSAccount = savAccountline.split(":", 2);
+//    	        for (String a : arrOfSAccount)
+//    	            System.out.println(a);
+//
+//    	        if("Chequing".equals(fromDropdown.getValue()) && "Savings".equals(toDropdown.getValue()))
+//    	        {
+//    	        	double newCheqTotal = Double.parseDouble(arrOfCAccount[1]) - Double.parseDouble(amountField.getText());
+//    	        	cheq = "Chequing Account:" + Double.toString(newCheqTotal);
+//    	        	
+//    	        	double newSavTotal = Double.parseDouble(arrOfSAccount[1]) + Double.parseDouble(amountField.getText());
+//    	        	sav = "Savings Account:" + Double.toString(newSavTotal);
+//    	        	
+//    	        }
+//        	        else {
+//        	        	System.out.println("cheq not present");
+//        	        }
+//  
+//    	        if("Chequing".equals(toDropdown.getValue()) && "Savings".equals(fromDropdown.getValue()))
+//    	        {
+//    	        	double newCheqTotal = Double.parseDouble(arrOfCAccount[1]) + Double.parseDouble(amountField.getText());
+//    	        	cheq = "Chequing Account:" + Double.toString(newCheqTotal);
+//    	        	
+//    	        	double newSavTotal = Double.parseDouble(arrOfSAccount[1]) - Double.parseDouble(amountField.getText());
+//    	        	sav = "Savings Account:" + Double.toString(newSavTotal);
+//    	        	
+//    	        }
+//        	        else {
+//        	        	System.out.println("Sav not present");
+//        	        }
+//    	        
+//        	        
+//    	      
+//    	      myReader.close();
+//    	      
+//	            FileWriter myWriter = new FileWriter("currentAccount.txt");
+//	            BufferedWriter bw = new BufferedWriter(myWriter);
+//	            PrintWriter out = new PrintWriter(bw);
+//	            out.println(name1);
+//	            out.println(accNo1);
+//	            out.println(cheq);
+//	            out.println(sav);
+//	            
+//	            out.close();
+//	            bw.close();
+//	            myWriter.close();
+//    	      
+//    	    } catch (FileNotFoundException e) {
+//    	      System.out.println("An error occurred.");
+//    	      e.printStackTrace();
+//    	    }
+//    	
+//    	
+//		  }  
+//		
+//	}
+//	
+//	
+//	
+//	
+//
+//

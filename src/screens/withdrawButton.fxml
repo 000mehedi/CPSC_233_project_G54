@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" prefHeight="321.0" prefWidth="316.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.withdrawFundsController">
+<VBox alignment="TOP_CENTER" prefHeight="321.0" prefWidth="316.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.withdrawFundsController">
    <children>
       <HBox alignment="CENTER" prefHeight="67.0" prefWidth="316.0">
          <children>
             <Label text="Withdraw:" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="65.0" prefWidth="316.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="328.0" prefWidth="373.0" text="Chequing balance:" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="61.0" prefWidth="316.0" />
          </children>
       </HBox>
       <Label text="Enter Amount:" />
@@ -25,5 +26,10 @@
       </HBox>
       <Button mnemonicParsing="false" onAction="#withdrawButton" text="Withdraw" />
       <Button mnemonicParsing="false" onAction="#backToAccountScreen" text="Back to Account Screen" />
+      <Label fx:id="noticeLabel">
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </Label>
    </children>
 </VBox>

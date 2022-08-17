@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Random;
+import java.util.regex.Pattern;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -39,6 +40,9 @@ public class openAccountController {
 	private Label savingAccNumLabel;
 	
 	@FXML
+	private Label accountNoticeLabel;
+	
+	@FXML
 	private Label signUpLabel;
 	
 	@FXML
@@ -46,36 +50,61 @@ public class openAccountController {
 	
 	int savingAccountNumber;
 	
+	
     @FXML
     public void generateAccountNumber(ActionEvent event) {
-    	Random random = new Random();
-    	savingAccountNumber = random.nextInt(10000); 
     	
-    	savingAccNumLabel.setText(String.format(" Account Number : %d", savingAccountNumber ));
+    	if (Pattern.matches("[a-zA-Z]+", savingsAccountName.getText())) {
+        	Random random = new Random();
+        	savingAccountNumber = random.nextInt(10000); 
+        	accountNoticeLabel.setText("");
+        	savingAccNumLabel.setText(String.format(" Account Number : %d", savingAccountNumber ));
+    	}
+    	else {
+    		savingAccNumLabel.setText("");
+    	}
+    }
+    
+    @FXML
+    public void donePersonalAccount(ActionEvent event) {
+    
+    	String accountName = savingsAccountName.getText();
+    	
+       	
+    	if (Pattern.matches("[a-zA-Z]+", accountName))    	
+    	{	
+    	accountNoticeLabel.setText("Sign up successful! Please remember your Acc No. for logging in.");	
+    	businessAccount newBusAcc = new businessAccount(accountName, savingAccountNumber);
+    	aBank.addAccount(newBusAcc);
+        }
+    	else
+    	{	
+    		accountNoticeLabel.setText("Name can only contain letters. Sign up will not be complete.");
+   
+    	}
+
     }
     
     @FXML
     public void doneBusinessAccount(ActionEvent event) {
-    	
+    
     	String accountName = savingsAccountName.getText();
+    	
+       	
+    	if (Pattern.matches("[a-zA-Z]+", accountName))    	
+    	{	
+    	accountNoticeLabel.setText("Sign up successful! Please remember your Acc No. for logging in.");	
     	businessAccount newBusAcc = new businessAccount(accountName, savingAccountNumber);
     	aBank.addAccount(newBusAcc);
-    	}  	
-		
-		
+        }
+    	else
+    	{	
+    		accountNoticeLabel.setText("Name can only contain letters. Sign up will not be complete.");
+   
+    	}
+    }
 
-
-	@FXML
-	public void donePersonalAccount(ActionEvent event) {
-		
-		String accountName = savingsAccountName.getText();
-		personalAccount newPersonalAcc = new personalAccount(accountName, savingAccountNumber);
-		aBank.addAccount(newPersonalAcc);
-		}  	
-		
-		
 }
-
 
 
 

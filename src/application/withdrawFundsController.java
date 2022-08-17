@@ -39,9 +39,18 @@ public class withdrawFundsController {
     	stage.setScene(scene);
     	stage.show();
     	
-    	
-
     }
+    
+	private personalAccount perAcc;
+	
+	@FXML
+	private TextField amoField;
+	
+	@FXML
+	Label noticeLabel;
+	
+	@FXML
+	private ChoiceBox<String> accountChoiceBox;
 	
 	@FXML
 	private TextField withdrawField;
@@ -53,63 +62,52 @@ public class withdrawFundsController {
     @FXML
     public void withdrawButton(ActionEvent event) throws FileNotFoundException, IOException {
     	
-    	try {
-    	      File myObj = new File("currentAccount.txt");
-    	      Scanner myReader = new Scanner(myObj);
-    	      System.out.println("Absolute path: " + myObj.getAbsolutePath());
+    	String[] arrOfname1 = null;
+    	String[] arrOfAccNo = null;
+    	String[] arrOfCAccount = null;
+		String[] arrOfSAccount = null;
+		try {
+  	      File myObj = new File("currentAccount.txt");
+  	      Scanner myReader = new Scanner(myObj);
+  	      System.out.println("Absolute path: " + myObj.getAbsolutePath());
 
-    	        String data = myReader.nextLine();
-    	        String name1 = data;
-    	        
-    	        data = myReader.nextLine();
-    	        String accNo1 = data;
-    	        
-    	        data = myReader.nextLine();
-    	        String cheq = data;
-    	        
-    	        data = data.replace("\n", "").replace("\r", "");
-    	        if(data.equals(""))
-    	        {
-    	        	data = myReader.nextLine();
-        	        data = data.replace("\n", "").replace("\r", "");
-    	        }
-    	        System.out.println(data);
-    	        String[] arrOfCAccount = data.split(":", 5);
-    	        for (String a : arrOfCAccount)
-    	            System.out.println(a);
-    	        // checking if the current row is emplty
+  	      	String data = myReader.nextLine();
+  	        
+  	        data = data.replace("\n", "").replace("\r", "");
+  	      String name1 = data;
+  	      arrOfname1 = name1.split(":", 5);
+  	        
+  	        
+  	        data = myReader.nextLine();
+  	      data = data.replace("\n", "").replace("\r", "");
+  	    String accNo1 = data;
+  	    arrOfAccNo = accNo1.split(":", 5);
+  	        
+  	        data = myReader.nextLine();
+  	        
+  	      data = data.replace("\n", "").replace("\r", "");
+  	    String cheq = data;
+  	    arrOfCAccount = cheq.split(":", 5);
+  	      
+         	String savAccountline = myReader.nextLine();
+        	
+      	savAccountline = savAccountline.replace("\n", "").replace("\r", "");
+      	String sav = savAccountline;
+      	arrOfSAccount = savAccountline.split(":", 2);
+	        
+	        
+  	    } catch (FileNotFoundException e) {
+	      System.out.println("An error occurred.");
+	      e.printStackTrace();
+	    }
+	        
 
-    	        	double newCheqTotal = Double.parseDouble(arrOfCAccount[1]) - Double.parseDouble(withdrawField.getText());
-    	        	cheq = "Chequing Account:" + Double.toString(newCheqTotal);
-    	        	
-    	        
-      	        	String savAccountline = myReader.nextLine();
-      	        	String sav = savAccountline;
-    	        	savAccountline = savAccountline.replace("\n", "").replace("\r", "");
-        	        String[] arrOfSAccount = savAccountline.split(":", 2);
-        	        for (String a : arrOfSAccount)
-        	            System.out.println(a);
-        	        
-    	      
-    	      myReader.close();
-    	      
-	            FileWriter myWriter = new FileWriter("currentAccount.txt");
-	            BufferedWriter bw = new BufferedWriter(myWriter);
-	            PrintWriter out = new PrintWriter(bw);
-	            out.println(name1);
-	            out.println(accNo1);
-	            out.println(cheq);
-	            out.println(sav);
-	            
-	            out.close();
-	            bw.close();
-	            myWriter.close();
-    	      
-    	    } catch (FileNotFoundException e) {
-    	      System.out.println("An error occurred.");
-    	      e.printStackTrace();
-    	    }
-    	
-    	
-		  }  	
+		perAcc = new personalAccount(arrOfname1[1], Integer.parseInt(arrOfAccNo[1]));
+		perAcc.setChequingBalance(Double.parseDouble(arrOfCAccount[1]));
+		perAcc.setSavingBalance(Double.parseDouble(arrOfSAccount[1]));
+		
+		perAcc.withdraw(withdrawField, noticeLabel);
+		
+		
+}
 }

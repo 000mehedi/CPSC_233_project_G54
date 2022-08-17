@@ -19,9 +19,10 @@ public class Main extends Application {
 			
 			VBox root = loader.load(new FileInputStream("src/screens/mainScreen.fxml"));
 			
-			Scene scene = new Scene(root,1000,600);
+			Scene scene = new Scene(root,400,400);
 			
 			primaryStage.setScene(scene);
+			primaryStage.setTitle("The Student Bank");
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();

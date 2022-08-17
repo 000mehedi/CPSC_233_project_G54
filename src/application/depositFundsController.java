@@ -1,17 +1,12 @@
 package application;
 
-
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Scanner;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -37,8 +32,6 @@ public class depositFundsController implements Initializable {
     	scene = new Scene(root);
     	stage.setScene(scene);
     	stage.show();
-    	
-    	
 
     }
 	
@@ -47,9 +40,11 @@ public class depositFundsController implements Initializable {
 	
 	@FXML
 	private Label myLabel;
-	
-
+	@FXML
+	private Label noticeLabel;
 	private personalAccount perAcc;
+	
+	private businessAccount busAcc;
 	
 	@FXML
 	private ChoiceBox<String> accountChoiceBox;
@@ -69,6 +64,7 @@ public class depositFundsController implements Initializable {
     	String[] arrOfAccNo = null;
     	String[] arrOfCAccount = null;
 		String[] arrOfSAccount = null;
+		String[] arrOfAccType = null;
 		try {
   	      File myObj = new File("currentAccount.txt");
   	      Scanner myReader = new Scanner(myObj);
@@ -79,8 +75,7 @@ public class depositFundsController implements Initializable {
   	        data = data.replace("\n", "").replace("\r", "");
   	      String name1 = data;
   	      arrOfname1 = name1.split(":", 5);
-  	        
-  	        
+  	               
   	        data = myReader.nextLine();
   	      data = data.replace("\n", "").replace("\r", "");
   	    String accNo1 = data;
@@ -97,6 +92,12 @@ public class depositFundsController implements Initializable {
       	savAccountline = savAccountline.replace("\n", "").replace("\r", "");
       	String sav = savAccountline;
       	arrOfSAccount = savAccountline.split(":", 2);
+      	
+	        data = myReader.nextLine();
+  	        
+	      data = data.replace("\n", "").replace("\r", "");
+	    String accType = data;
+	    arrOfAccType = accType.split(":", 5);
 	        
 	        
   	    } catch (FileNotFoundException e) {
@@ -105,11 +106,25 @@ public class depositFundsController implements Initializable {
 	    }
 	        
 
-		perAcc = new personalAccount(arrOfname1[1], Integer.parseInt(arrOfAccNo[1]));
-		perAcc.setChequingBalance(Double.parseDouble(arrOfCAccount[1]));
-		perAcc.setSavingBalance(Double.parseDouble(arrOfSAccount[1]));
+		if("Personal".equals(arrOfAccType[1]))
+		{
+			perAcc = new personalAccount(arrOfname1[1], Integer.parseInt(arrOfAccNo[1]));
+			perAcc.setChequingBalance(Double.parseDouble(arrOfCAccount[1]));
+			perAcc.setSavingBalance(Double.parseDouble(arrOfSAccount[1]));
+			
+			perAcc.deposit(amoField, accountChoiceBox, noticeLabel);
+		}
+
 		
-		perAcc.deposit(amoField, accountChoiceBox);
+		if("Business".equals(arrOfAccType[1]))
+		{
+			busAcc = new businessAccount(arrOfname1[1], Integer.parseInt(arrOfAccNo[1]));
+			busAcc.setChequingBalance(Double.parseDouble(arrOfCAccount[1]));
+			busAcc.setSavingBalance(Double.parseDouble(arrOfSAccount[1]));
+			
+			busAcc.deposit(amoField, accountChoiceBox, noticeLabel);
+		}
+
   	
     	
 //    	try {

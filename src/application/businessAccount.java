@@ -9,6 +9,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 // more capacity on withdraws and deposits
@@ -25,7 +26,7 @@ public class businessAccount extends Account{
 	}
 	
 	@Override
-	public void deposit(TextField amoField,  ChoiceBox<String> accountChoiceBox) throws IOException {
+	public void deposit(TextField amoField,  ChoiceBox<String> accountChoiceBox,Label noticeLabel) throws IOException {
 		// TODO Auto-generated method stub
 		
 		try {
@@ -57,6 +58,7 @@ public class businessAccount extends Account{
 	  	        	
 	  	        }
 	      	        else {
+	      	        	noticeLabel.setText("");
 	      	        	System.out.println("cheq not present");
 	      	        }
 	    	        	String savAccountline = myReader.nextLine();
@@ -95,15 +97,12 @@ public class businessAccount extends Account{
 	  	      System.out.println("An error occurred.");
 	  	      e.printStackTrace();
 	  	    }
-	  	
-	  	
+	  		  	
 			  }  	
-					
-		
-	
+
 
 	@Override
-	public void withdraw(TextField withdrawField) throws IOException {
+	public void withdraw(TextField withdrawField, Label noticeLabel) throws IOException {
 		// TODO Auto-generated method stub
 		
     	try {
@@ -131,7 +130,7 @@ public class businessAccount extends Account{
   	        for (String a : arrOfCAccount)
   	            System.out.println(a);
   	        // checking if the current row is empty
-
+  	        	noticeLabel.setText("");
   	        	double newCheqTotal = Double.parseDouble(arrOfCAccount[1]) - Double.parseDouble(withdrawField.getText());
   	        	cheq = "Chequing Account:" + Double.toString(newCheqTotal);
   	        	
@@ -164,11 +163,6 @@ public class businessAccount extends Account{
   	    }
 		
 	}
-	
-	@Override
-	public void transfer(double chequingAccountBalance, double savingsAccountBalance) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 }
