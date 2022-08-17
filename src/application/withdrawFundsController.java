@@ -47,6 +47,9 @@ public class withdrawFundsController {
 	private TextField amoField;
 	
 	@FXML
+	Label noticeLabel;
+	
+	@FXML
 	private ChoiceBox<String> accountChoiceBox;
 	
 	@FXML
@@ -103,7 +106,7 @@ public class withdrawFundsController {
 		perAcc.setChequingBalance(Double.parseDouble(arrOfCAccount[1]));
 		perAcc.setSavingBalance(Double.parseDouble(arrOfSAccount[1]));
 		
-		perAcc.withdraw(withdrawField);
+		perAcc.withdraw(withdrawField, noticeLabel);
 		
 		
 }

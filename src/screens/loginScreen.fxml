@@ -39,6 +39,7 @@
                      <VBox.margin>
                         <Insets bottom="10.0" left="75.0" right="10.0" top="10.0" />
                      </VBox.margin></Button>
+                  <Label fx:id="loginNoticeLabel" />
                </children>
             </VBox>
          </center>

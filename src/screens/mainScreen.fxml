@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="343.0" prefWidth="345.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.welcomeScreenController">
+<VBox prefHeight="197.0" prefWidth="345.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.welcomeScreenController">
    <children>
-      <HBox prefHeight="100.0" prefWidth="200.0" />
+      <HBox prefHeight="0.0" prefWidth="345.0" />
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <center>
             <VBox prefHeight="83.0" prefWidth="345.0" style="-fx-background-color: pink;" BorderPane.alignment="CENTER">
@@ -22,7 +22,7 @@
                      <font>
                         <Font size="15.0" />
                      </font></Button>
-                  <Button mnemonicParsing="false" onAction="#goToLoginPage" prefHeight="27.0" prefWidth="139.0" style="-fx-background-color: black;" text="Log In" textFill="WHITE">
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goToLoginPage" prefHeight="27.0" prefWidth="139.0" style="-fx-background-color: black;" text="Log In" textFill="WHITE">
                      <VBox.margin>
                         <Insets left="110.0" />
                      </VBox.margin>
