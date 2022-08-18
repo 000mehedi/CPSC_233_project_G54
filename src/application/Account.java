@@ -23,7 +23,14 @@ public abstract class Account{
 	protected double chequingAccountBalance;
 	protected double savingsAccountBalance;
 	
+	// Constructor with no parameters
 	public Account() {}
+	
+	/**
+	 * Constructor with parameters
+	 * @param givenName
+	 * @param givenAccNumber
+	 */
 	
 	public Account(String givenName, int givenAccNumber) 
 	{
@@ -34,11 +41,20 @@ public abstract class Account{
 		
 		chequingAccountBalance = 0;
 		
-		savingsAccountBalance = 0;
-		
+		savingsAccountBalance = 0;	
 	}
 	
-	public void transfer(TextField amountField, ChoiceBox<String> fromDropdown, ChoiceBox<String> toDropdown ) throws IOException {
+	/**
+	 * This method is used to transfer funds 
+	 * from Chequing Account to Savings Account, and vice versa
+	 * @param amountField - the amount of money to be transferred
+	 * @param fromDropdown - the account from which the money has to be transferred
+	 * @param toDropdown - the account to which the money will be transferred
+	 * @param noticeLabel1 - displays the current balance of chequing account and any other notifications
+	 * @param noticeLabel2 - displays the current balance of savings account
+	 */
+	
+	public void transfer(TextField amountField, ChoiceBox<String> fromDropdown, ChoiceBox<String> toDropdown, Label noticeLabel1, Label noticeLabel2 ) throws IOException {
 
     	try {
   	      File myObj = new File("currentAccount.txt");
@@ -68,35 +84,114 @@ public abstract class Account{
   	        
 	        	String savAccountline = myReader.nextLine();
 	        	String sav = savAccountline;
+   	        	String accTypeLine = myReader.nextLine();
+	        	String accType = accTypeLine;
+
 	        	savAccountline = savAccountline.replace("\n", "").replace("\r", "");
   	        String[] arrOfSAccount = savAccountline.split(":", 2);
   	        for (String a : arrOfSAccount)
-  	            System.out.println(a);
+  	            System.out.println(a);   	
+  	  		
+  	    	int counterDecPoint = 0;
+  	    	boolean isValid = true;
+
+  	    	for (char c: amountField.getText().toCharArray()) {
+  	    		
+  	    		// if any character is not digit or dot, set flag to false :  it is not a number
+  	    		if ((!Character.isDigit(c)) && (c!='.')) 
+  	    		{
+  	    			isValid = false;	
+  	    			noticeLabel1.setText("Amount may only contain numbers.");
+  	    			noticeLabel2.setText("");
+  	    		}
+  	    		
+  	    		// check for multiple decimal points , e.g.: 13.3.3
+  				if ((c== '.') && counterDecPoint == 0) 
+  				{
+  					counterDecPoint += 1;
+  				}
+  				else if ((c== '.') && counterDecPoint > 0) 
+  				{
+  					isValid = false;	
+  					noticeLabel1.setText("Amount may only contain numbers and a single decimal.");
+  					noticeLabel2.setText("");
+  				}
+  	    		
+  				
+  				// if decimal is the last digit , e.g. : 13.
+  				if((c== '.') && (c == amountField.getText().toCharArray()[amountField.getText().toCharArray().length - 1]) )
+  				{
+  					isValid = false;	
+  					noticeLabel1.setText("Don't include any decimals or non-digit characters at the end.");
+  					noticeLabel2.setText("");
+  				}
+  	    	}
+  	    	
 
   	        if("Chequing".equals(fromDropdown.getValue()) && "Savings".equals(toDropdown.getValue()))
-  	        {
-  	        	double newCheqTotal = Double.parseDouble(arrOfCAccount[1]) - Double.parseDouble(amountField.getText());
-  	        	cheq = "Chequing Account:" + Double.toString(newCheqTotal);
+  	        {	
   	        	
-  	        	double newSavTotal = Double.parseDouble(arrOfSAccount[1]) + Double.parseDouble(amountField.getText());
-  	        	sav = "Savings Account:" + Double.toString(newSavTotal);
-  	        	
-  	        }
-      	        else {
-      	        	System.out.println("cheq not present");
-      	        }
+  	        	if ((isValid == true) && Double.parseDouble(amountField.getText()) > 0 )
+  	        	{
+  	        		if ((Double.parseDouble(arrOfCAccount[1]) - Double.parseDouble(amountField.getText()))>0)
+  	        		{
+		  	        	noticeLabel2.setText("");	
+		  	        	double newCheqTotal = Double.parseDouble(arrOfCAccount[1]) - Double.parseDouble(amountField.getText());
+		  	        	cheq = "Chequing Account: " + Double.toString(newCheqTotal);
+		  	        	noticeLabel1.setText(cheq);
+		  	        	
+		  	        	double newSavTotal = Double.parseDouble(arrOfSAccount[1]) + Double.parseDouble(amountField.getText());
+		  	        	sav = "Savings Account Balance: " + Double.toString(newSavTotal);
+		  	        	noticeLabel2.setText(sav);
+	  	            }        	
+	  	            else
+	  	            {
+	      	        	noticeLabel1.setText("Not enough money in Chequing Account.");
+	      	        	noticeLabel2.setText("");
 
+	  	            }
+  	        	}
+  	        	else
+  	        	{
+  	        		noticeLabel1.setText("Enter a valid positive amount.");
+  	        		noticeLabel2.setText("");
+  	        	}
+  	        }	
+      	   else {
+      		    System.out.println("error");
+      	        }
+  	        
+  	        
   	        if("Chequing".equals(toDropdown.getValue()) && "Savings".equals(fromDropdown.getValue()))
-  	        {
-  	        	double newCheqTotal = Double.parseDouble(arrOfCAccount[1]) + Double.parseDouble(amountField.getText());
-  	        	cheq = "Chequing Account:" + Double.toString(newCheqTotal);
-  	        	
-  	        	double newSavTotal = Double.parseDouble(arrOfSAccount[1]) - Double.parseDouble(amountField.getText());
-  	        	sav = "Savings Account:" + Double.toString(newSavTotal);
-  	        	
-  	        }
-      	        else {
-      	        	System.out.println("Sav not present");
+  	        {	
+  	        	if ((Integer.parseInt(amountField.getText()) > 0 && isValid == true))
+  	        	{
+  	        		if ((Double.parseDouble(arrOfSAccount[1]) - Double.parseDouble(amountField.getText()))>0)
+  	        		{
+		  	        	noticeLabel2.setText("");
+		  	        	double newCheqTotal = Double.parseDouble(arrOfCAccount[1]) + Double.parseDouble(amountField.getText());
+		  	        	cheq = "Chequing Account: " + Double.toString(newCheqTotal);
+		  	        	noticeLabel1.setText(cheq);
+		  	        	
+		  	        	double newSavTotal = Double.parseDouble(arrOfSAccount[1]) - Double.parseDouble(amountField.getText());
+		  	        	sav = "Savings Account: " + Double.toString(newSavTotal);
+		  	        	noticeLabel2.setText(sav);	        	
+	  	            }        	
+	  	           else
+	  	           {
+	      	        	noticeLabel1.setText("Not enough money in Savings Account.");
+	      	        	noticeLabel2.setText("");
+
+	  	           }
+  	        	}
+  	        	else
+  	        	{
+  	        		noticeLabel1.setText("Enter a valid positive amount.");
+  	        		noticeLabel2.setText("");
+  	        	}
+  	        }	
+      	   else {
+      		    System.out.println("error");
       	        }
   	        
  	      myReader.close();
@@ -108,7 +203,7 @@ public abstract class Account{
 	            out.println(accNo1);
 	            out.println(cheq);
 	            out.println(sav);
-	            
+	        	out.println(accType);
 	            out.close();
 	            bw.close();
 	            myWriter.close();
@@ -119,9 +214,6 @@ public abstract class Account{
   	    }
 	}
     	
-
-
-	// GETTER
 	public double getChequingAccountBalance() 
 	{
 		return this.chequingAccountBalance;
@@ -164,7 +256,6 @@ public abstract class Account{
 		this.accountNumber = anAccNo;
 	}
 	
-
 	public abstract void deposit(TextField amoField, ChoiceBox<String> accountChoiceBox,Label noticeLabel) throws IOException ;
 
 	public void withdraw(TextField withdrawField, Label noticeLabel) throws IOException {	

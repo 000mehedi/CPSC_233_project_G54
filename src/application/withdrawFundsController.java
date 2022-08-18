@@ -30,6 +30,11 @@ public class withdrawFundsController {
 	private Stage stage;
 	private Scene scene;
 	
+	/**
+	 * This method allows the user to go to the menu screen
+	 * where they can deposit/withdraw/transfer funds
+	 * @param event
+	 */
     @FXML
     public void backToAccountScreen(ActionEvent event) throws IOException {
     	FXMLLoader loader = new FXMLLoader();
@@ -42,6 +47,7 @@ public class withdrawFundsController {
     }
     
 	private personalAccount perAcc;
+	private businessAccount busAcc;
 	
 	@FXML
 	private TextField amoField;
@@ -58,7 +64,12 @@ public class withdrawFundsController {
 	@FXML
 	private Label myLabel;
 	
-
+	/**
+	 * This method invokes the withdrawFunds method
+	 * in Personal/ Business class accordingly
+	 * @param givenName
+	 * @param givenAccNumber
+	 */
     @FXML
     public void withdrawButton(ActionEvent event) throws FileNotFoundException, IOException {
     	
@@ -66,6 +77,7 @@ public class withdrawFundsController {
     	String[] arrOfAccNo = null;
     	String[] arrOfCAccount = null;
 		String[] arrOfSAccount = null;
+		String[] arrOfAccType = null;
 		try {
   	      File myObj = new File("currentAccount.txt");
   	      Scanner myReader = new Scanner(myObj);
@@ -96,18 +108,33 @@ public class withdrawFundsController {
       	arrOfSAccount = savAccountline.split(":", 2);
 	        
 	        
+        data = myReader.nextLine();
+        
+	        
+        data = data.replace("\n", "").replace("\r", "");
+        String accType = data;
+    	arrOfAccType = accType.split(":", 5);
   	    } catch (FileNotFoundException e) {
 	      System.out.println("An error occurred.");
 	      e.printStackTrace();
 	    }
 	        
-
-		perAcc = new personalAccount(arrOfname1[1], Integer.parseInt(arrOfAccNo[1]));
-		perAcc.setChequingBalance(Double.parseDouble(arrOfCAccount[1]));
-		perAcc.setSavingBalance(Double.parseDouble(arrOfSAccount[1]));
+		if("Personal".equals(arrOfAccType[1]))
+		{
+			perAcc = new personalAccount(arrOfname1[1], Integer.parseInt(arrOfAccNo[1]));
+			perAcc.setChequingBalance(Double.parseDouble(arrOfCAccount[1]));
+			perAcc.setSavingBalance(Double.parseDouble(arrOfSAccount[1]));
+			
+			perAcc.withdraw(withdrawField, noticeLabel);
+		}
 		
-		perAcc.withdraw(withdrawField, noticeLabel);
-		
-		
-}
+		if("Business".equals(arrOfAccType[1]))
+		{
+			busAcc = new businessAccount(arrOfname1[1], Integer.parseInt(arrOfAccNo[1]));
+			busAcc.setChequingBalance(Double.parseDouble(arrOfCAccount[1]));
+			busAcc.setSavingBalance(Double.parseDouble(arrOfSAccount[1]));
+			
+			busAcc.withdraw(withdrawField, noticeLabel);
+		}
+    }
 }

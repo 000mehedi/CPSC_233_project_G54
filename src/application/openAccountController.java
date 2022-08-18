@@ -24,6 +24,11 @@ public class openAccountController {
 	private Stage stage;
 	private Scene scene;
 	
+	/**
+	 * This method allows the user to go back to the main screen
+	 * where they can log into their newly created account/ create another account
+	 * @param event
+	 */
     @FXML
     public void backToWelcomeScreen(ActionEvent event) throws IOException {
     	FXMLLoader loader = new FXMLLoader();
@@ -50,7 +55,11 @@ public class openAccountController {
 	
 	int savingAccountNumber;
 	
-	
+	/**
+	 * This method generates a unique account number
+	 * for every new account
+	 * @param event
+	 */
     @FXML
     public void generateAccountNumber(ActionEvent event) {
     	
@@ -65,6 +74,11 @@ public class openAccountController {
     	}
     }
     
+	/**
+	 * This method gets the username typed by the user
+	 * and checks if it's valid or not for Personal Accounts
+	 * @param event
+	 */
     @FXML
     public void donePersonalAccount(ActionEvent event) {
     
@@ -74,8 +88,8 @@ public class openAccountController {
     	if (Pattern.matches("[a-zA-Z]+", accountName))    	
     	{	
     	accountNoticeLabel.setText("Sign up successful! Please remember your Acc No. for logging in.");	
-    	businessAccount newBusAcc = new businessAccount(accountName, savingAccountNumber);
-    	aBank.addAccount(newBusAcc);
+    	personalAccount newPerAcc = new personalAccount(accountName, savingAccountNumber);
+    	aBank.addAccount(newPerAcc);
         }
     	else
     	{	
@@ -85,6 +99,11 @@ public class openAccountController {
 
     }
     
+	/**
+	 * This method gets the username typed by the user
+	 * and checks if it's valid or not for Business Accounts
+	 * @param event
+	 */
     @FXML
     public void doneBusinessAccount(ActionEvent event) {
     

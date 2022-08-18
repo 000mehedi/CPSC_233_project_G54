@@ -13,7 +13,7 @@
       <HBox prefHeight="0.0" prefWidth="345.0" />
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <center>
-            <VBox prefHeight="83.0" prefWidth="345.0" style="-fx-background-color: pink;" BorderPane.alignment="CENTER">
+            <VBox prefHeight="325.0" prefWidth="345.0" style="-fx-background-color: pink;" BorderPane.alignment="CENTER">
                <children>
                   <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#createNewAccount" prefHeight="32.0" prefWidth="165.0" style="-fx-background-color: black;" text="Create New Account" textFill="WHITE">
                      <VBox.margin>

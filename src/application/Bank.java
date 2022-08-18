@@ -26,19 +26,25 @@ public class Bank {
 
 	private int bankNumber = 0;
 	private ArrayList<Account> accountList= new ArrayList<Account>();
-
+	
+	
 	public int getBankNumber() {
 		return bankNumber;
 	}
-
+	
 	public void setBankNumber(int givenBankNumber) {
 		this.bankNumber = givenBankNumber;
 	}
+	
 
 	public ArrayList<Account> getAccountList() {
 		return accountList;
 	}
-
+	
+	/**
+	 * This method adds a new account to the Bank database which accountDatabase.txt
+	 * @param anAccount - it writes all the account details on the text file
+	 */
 	public void addAccount(Account anAccount) {
 		accountList.add(anAccount);
 		// also add the account to the database
@@ -56,14 +62,10 @@ public class Bank {
 			            out.println("Chequing Balance:" + anAccount.getChequingAccountBalance());
 			            out.println("Savings Balance:" + anAccount.getSavingsAccountBalance());
 			            out.println("Account Type:" + anAccount.getType());
-			            
-// add account type 
-			            out.println();
-			            
+			            out.println();        
 			            out.close();
 			            bw.close();
 			            myWriter.close();
-
 	              
 	        } else {
 	        	System.out.println("File already exists.");
@@ -90,7 +92,17 @@ public class Bank {
 	      } 
 	}
 	
- 
+	/**
+	 * This method allows the user to log into their previously created account
+	 * It also checks whether the account number exists.
+	 * If it does, only then the user can log in.
+	 * @param stage
+	 * @param scene
+	 * @param loginNoticeLabel - to display any error messages
+	 * @param event
+	 * @param nameField - to allow the user to type their name which they used while account sign up
+	 * @param accNumberField - to allow the user to type their account number which they received while account sign up
+	 */
     public void login(Stage stage, Scene scene, Label loginNoticeLabel, ActionEvent event,TextField nameField, TextField accNumberField) throws FileNotFoundException, IOException {
     	
     	try {
@@ -128,6 +140,8 @@ public class Bank {
         	        	String cheqAcc = myReader.nextLine();
         	        	
         	        	String savAcc = myReader.nextLine();
+        	        	
+        	        	String accType = myReader.nextLine();
         	        	// write the details to a new file
         	    	    try {
         	    	        File myObj1 = new File("currentAccount.txt");
@@ -141,13 +155,10 @@ public class Bank {
 	    			            out.println(accNo);
 	    			            out.println(cheqAcc);
 	    			            out.println(savAcc);
-	    			            
+	    			            out.println(accType);
 	    			            out.close();
 	    			            bw.close();
-	    			            myWriter.close();
-
-        	    	              
-        	    	        
+	    			            myWriter.close();      
 
         	              } catch (IOException e) {
         	                System.out.println("An error occurred.");
@@ -159,8 +170,7 @@ public class Bank {
         	        	stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         	        	scene = new Scene(root);
         	        	stage.setScene(scene);
-        	        	stage.show();
-        	        	
+        	        	stage.show();  	        	
 
         	        	break;
         	        }
@@ -178,11 +188,8 @@ public class Bank {
     	    } catch (FileNotFoundException e) {
     	      System.out.println("An error occurred.");
     	      e.printStackTrace();
-    	    }
-    	
+    	    } 	
     	
 		  }  	
-		
-	
-	
+
 }

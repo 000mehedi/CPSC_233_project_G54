@@ -1,4 +1,5 @@
-Account Name:mah
-Account Number:2033
+Account Name:mahi
+Account Number:5212
 Chequing Balance:0.0
 Savings Balance:0.0
+Account Type:Personal
