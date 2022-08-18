@@ -158,7 +158,7 @@ public abstract class Account{
   	        	}
   	        }	
       	   else {
-      		    System.out.println("error");
+      		   
       	        }
   	        
   	        
@@ -191,7 +191,7 @@ public abstract class Account{
   	        	}
   	        }	
       	   else {
-      		    System.out.println("error");
+
       	        }
   	        
  	      myReader.close();

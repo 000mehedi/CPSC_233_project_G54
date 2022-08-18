@@ -97,7 +97,7 @@ public class businessAccount extends Account{
 	  			    noticeLabel.setText("Don't include any decimals or non-digit characters at the end.");
 	  			}
 	      	}  	        
-	  	        if (isValid = true) {
+	  	        if (isValid == true) {
 	  	        
 	  	        if("Chequing Balance".equals(accountChoiceBox.getValue()))
 	  	        {   double newCheqTotal;
