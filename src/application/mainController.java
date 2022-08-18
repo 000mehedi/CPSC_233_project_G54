@@ -26,20 +26,10 @@ public class mainController {
 	private Stage stage;
 	private Scene scene;
 
-	
-    @FXML
-    public void backToWelcomeScreen(ActionEvent event) throws IOException {
-    	FXMLLoader loader = new FXMLLoader();
-		VBox root = loader.load(new FileInputStream("src/screens/mainScreen.fxml"));
-    	stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-    	scene = new Scene(root);
-    	stage.setScene(scene);
-    	stage.show();
-    	
-    	
-
-    }
-
+	/**
+	 * This method opens the screen to deposit funds
+	 * @param event
+	 */
     @FXML
     void depositFunds(ActionEvent event) throws IOException {
     	FXMLLoader loader = new FXMLLoader();
@@ -50,7 +40,11 @@ public class mainController {
     	stage.show();
 
     }
-
+    
+	/**
+	 * This method opens the screen to withdraw funds
+	 * @param event
+	 */
     @FXML
     void withdrawFunds(ActionEvent event) throws IOException {
 
@@ -61,7 +55,11 @@ public class mainController {
     	stage.setScene(scene);
     	stage.show();    	
     }
-
+    
+	/**
+	 * This method opens the screen to check the balances in Chequing and Savings accounts
+	 * @param event
+	 */
     @FXML
     void myAccounts(ActionEvent event) throws IOException {
     	
@@ -74,6 +72,10 @@ public class mainController {
 
     }
     
+	/**
+	 * This method opens the screen to transfer funds
+	 * @param event
+	 */
     @FXML
     void transferFunds (ActionEvent event) throws IOException {
     	
@@ -85,7 +87,14 @@ public class mainController {
     	stage.show();    	
 
     }
-
+    
+	/**
+	 * This method allows the user to quit the program.
+	 * Upon calling this method, the user's updated information
+	 * regarding the account balances are saved.
+	 * Then it leads to the main screen where they can log in or create a new account.
+	 * @param event
+	 */
     @FXML
     void quit(ActionEvent event) throws IOException {
     	try {
@@ -106,6 +115,9 @@ public class mainController {
   	        
   	        data1 = myRead.nextLine();
   	        String sav = data1;
+  	        
+  	        data1 = myRead.nextLine();
+  	        String accType = data1;
     		
   	      File myObj = new File("accountDatabase.txt");
   	      Scanner myReader = new Scanner(myObj);
@@ -152,10 +164,8 @@ public class mainController {
       	        	out.println(accNo);
       	        	out.println(cheq);
       	        	out.println(sav);
+      	        	out.println(accType);
       	        	out.println();
-      	        	
-      	        	
-      	        	
 
       	        	break;
       	        }
@@ -179,6 +189,13 @@ public class mainController {
   	      System.out.println("An error occurred.");
   	      e.printStackTrace();
   	    }
+    	
+    	FXMLLoader loader = new FXMLLoader();
+		VBox root = loader.load(new FileInputStream("src/screens/mainScreen.fxml"));
+    	stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+    	scene = new Scene(root);
+    	stage.setScene(scene);
+    	stage.show();
   	
   	
 		    

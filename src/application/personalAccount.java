@@ -15,8 +15,14 @@ import javafx.scene.control.TextField;
 // allows limited deposits and withdraws
 public class personalAccount extends Account {
 	
+	// Constructor without parameters
 	public personalAccount() {}
 	
+	/**
+	 * Constructor with parameters
+	 * @param givenName
+	 * @param givenAccNumber
+	 */
 	public personalAccount(String givenName, int givenAccNumber) {
 		this.name = givenName;
 		this.accountNumber = givenAccNumber;
@@ -25,6 +31,13 @@ public class personalAccount extends Account {
 		accountType = "Personal";
 	}
 	
+	/**
+	 * This method allows the user to deposit funds 
+	 * into their Chequing or Savings account
+	 * @param amoField - the amount of money to deposit
+	 * @param accountChoiceBox - the account (Savings/Chequing) into which the money should be deposited into
+	 * @param noticeLabel - to display any error/success messages
+	 */
 	@Override
 	public void deposit(TextField amoField,  ChoiceBox<String> accountChoiceBox, Label noticeLabel) throws IOException {
 		// TODO Auto-generated method stub
@@ -51,21 +64,55 @@ public class personalAccount extends Account {
   	            System.out.println(a);
   	        // checking if the current row is empty
   	        System.out.println(accountChoiceBox.getValue());
+  	        
+        	noticeLabel.setText("");
+        	
+        	boolean isValid = true;
+        	int counterDecPoint = 0;
+        	for (char c: amoField.getText().toCharArray()) {
+    		
+    		// if any character is not digit or dot, set flag to false :  it is not a number
+    		if ((!Character.isDigit(c)) && (c!='.')) {
+    			isValid = false;
+    			noticeLabel.setText("Amount may only contain numbers.");
+    		}
+      		// check for multiple decimal points , e.g.: 13.3.3
+  			if ((c== '.') && counterDecPoint == 0) 
+  			{
+  				counterDecPoint += 1;
+  			}
+  			else if ((c== '.') && counterDecPoint > 0) 
+  			{
+  				isValid = false;	
+  			    noticeLabel.setText("Amount may only contain numbers and a single decimal.");
+  			}
+      		
+  			
+  			// if decimal is the last digit , e.g. : 13.
+  			if((c== '.') && (c == amoField.getText().toCharArray()[amoField.getText().toCharArray().length - 1]) )
+  			{
+  				isValid = false;	
+  			    noticeLabel.setText("Don't include any decimals or non-digit characters at the end.");
+  			}
+      	}
+  	     if (isValid = true)
+  	     {
   	        if("Chequing Balance".equals(accountChoiceBox.getValue()))
   	        	
   	        { 	        	
   	        	double newCheqTotal;
   	        	
-  	        	if((newCheqTotal = Double.parseDouble(arrOfCAccount[1]) + Double.parseDouble(amoField.getText())) < 1000) 
+  	        	if((Double.parseDouble(amoField.getText())) <= 1000 && (Double.parseDouble(amoField.getText())) > 0) 
   	        	{
+  	        	noticeLabel.setText("");
   	        	newCheqTotal = Double.parseDouble(arrOfCAccount[1]) + Double.parseDouble(amoField.getText());
-  	        	cheq = "Chequing Balance:" + Double.toString(newCheqTotal); 	        	
+  	        	cheq = "Chequing Balance:" + Double.toString(newCheqTotal); 
+  	        	noticeLabel.setText("Money deposited!");
   	        	}
   	        	
   	        	else 
   	        	{
-  	        		noticeLabel.setText("You can't deposit over $1000 in a 'Personal Account'.");
-  	        		System.out.println("You can't deposit over $1000 in a 'Personal Account'.");
+  	        		noticeLabel.setText("Enter an amount between $0 and $1000. Can't deposit > $1000 at a time in Personal Account.");
   	        	}
   	        }
       	    else 
@@ -75,15 +122,30 @@ public class personalAccount extends Account {
     	        	
   	        	String savAccountline = myReader.nextLine();
     	        String sav = savAccountline;
+   	        	String accTypeLine = myReader.nextLine();
+	        	String accType = accTypeLine;
+	
   	        	savAccountline = savAccountline.replace("\n", "").replace("\r", "");
       	        String[] arrOfSAccount = savAccountline.split(":", 2);
       	        for (String a : arrOfSAccount)
       	            System.out.println(a);
+	        
       	        if("Savings Balance".equals(accountChoiceBox.getValue()))
-      	        {
-      	        	double newSavTotal = Double.parseDouble(arrOfSAccount[1]) + Double.parseDouble(amoField.getText());
-      	        	sav = "Savings Balance:" + Double.toString(newSavTotal);
       	        	
+      	        {  
+      	        	double newSavTotal;
+      	        
+      	        	if((Double.parseDouble(amoField.getText())) <= 1000 && (Double.parseDouble(amoField.getText())) > 0) 
+      	        	{
+      	        	newSavTotal = Double.parseDouble(arrOfSAccount[1]) + Double.parseDouble(amoField.getText());
+      	        	sav = "Savings Balance:" + Double.toString(newSavTotal);
+      	        	noticeLabel.setText("Money deposited!");
+  	        	}
+  	        	
+  	        	else 
+  	        	{
+  	        		noticeLabel.setText("Enter an amount between $0 and $1000. Can't deposit > $1000 at a time in Personal Account.");
+  	        	}
       	        }
       	        else {
       	        	System.out.println("Sav not present");
@@ -98,18 +160,27 @@ public class personalAccount extends Account {
 	            out.println(accNo1);
 	            out.println(cheq);
 	            out.println(sav);
-	            
+	            out.println(accType);
 	            out.close();
 	            bw.close();
 	            myWriter.close();
-  	      
-  	    } catch (FileNotFoundException e) {
+  	     }	     
+  	     
+  	    } 
+		
+		  catch (FileNotFoundException e) {
   	      System.out.println("An error occurred.");
   	      e.printStackTrace();
   	    }
 		
 		  }  	
-		
+	
+	/**
+	 * This method allows the user to withdraw money 
+	 * from their Chequing account
+	 * @param withdrawField - the amount of money to withdraw
+	 * @param noticeLabel - to display any error/success messages
+	 */
 	@Override
 	public void withdraw(TextField withdrawField, Label noticeLabel) throws IOException {
 		// TODO Auto-generated method stub
@@ -139,25 +210,70 @@ public class personalAccount extends Account {
   	        for (String a : arrOfCAccount)
   	            System.out.println(a);
   	        // checking if the current row is empty
+
   	      double newCheqTotal;
-  	        if (Integer.parseInt(withdrawField.getText()) < 500) 
-  	        {
-  	        	newCheqTotal = Double.parseDouble(arrOfCAccount[1]) - Double.parseDouble(withdrawField.getText());
+        	boolean isValid = true;
+        	int counterDecPoint = 0;
+        	for (char c: withdrawField.getText().toCharArray()) {
+    		
+	    		// if any character is not digit or dot, set flag to false :  it is not a number
+	    		if ((!Character.isDigit(c)) && (c!='.')) {
+	    			isValid = false;
+	    			noticeLabel.setText("Amount may only contain numbers.");
+	    		}	
+	      		// check for multiple decimal points , e.g.: 13.3.3
+	  			if ((c== '.') && counterDecPoint == 0) 
+	  			{
+	  				counterDecPoint += 1;
+	  			}
+	  			else if ((c== '.') && counterDecPoint > 0) 
+	  			{
+	  				isValid = false;	
+	  			    noticeLabel.setText("Amount may only contain numbers and a single decimal.");
+	  			}
+      		
+  			
+  			// if decimal is the last digit , e.g. : 13.
+  			if((c== '.') && (c == withdrawField.getText().toCharArray()[withdrawField.getText().toCharArray().length - 1]) )
+  			{
+  				isValid = false;	
+  			    noticeLabel.setText("Don't include any decimals or non-digit characters at the end.");;
+  			}
+      	}		
+     
+        	if( isValid == true)
+        	{
+            double origCheqTotal = Double.parseDouble(arrOfCAccount[1]);
+          	double amountToWithdraw = Double.parseDouble(withdrawField.getText());
+  	        if (((origCheqTotal - amountToWithdraw) >= 0)) 
+  	        { 	
+  	        	noticeLabel.setText("");
+  	        	if (amountToWithdraw < 500) 
+  	        	{
+  	        	newCheqTotal = origCheqTotal - amountToWithdraw;
   	        	cheq = "Chequing Account:" + Double.toString(newCheqTotal);
+  	        	noticeLabel.setText("Money withdrawn!");
+  	        	}
+  	        	else
+  	        	{
+  	        		noticeLabel.setText("Can't withdraw more than $500.");
+  	        	}
   	        }
   	        else 
-  	        {	noticeLabel.setText("Can't withdraw more than $500 CAD.");
-  	        	System.out.println("Can't withdraw more than $500 CAD.");
+  	        {	noticeLabel.setText("Not enough money to withdraw.");
   	        }
   	        
+        	}
     	        	String savAccountline = myReader.nextLine();
     	        	String sav = savAccountline;
+       	        	String accTypeLine = myReader.nextLine();
+    	        	String accType = accTypeLine;
+  	
   	        	savAccountline = savAccountline.replace("\n", "").replace("\r", "");
       	        String[] arrOfSAccount = savAccountline.split(":", 2);
       	        for (String a : arrOfSAccount)
       	            System.out.println(a);
-      	        
-  	      
+ 
   	      myReader.close();
   	      
 	            FileWriter myWriter = new FileWriter("currentAccount.txt");
@@ -167,7 +283,7 @@ public class personalAccount extends Account {
 	            out.println(accNo1);
 	            out.println(cheq);
 	            out.println(sav);
-	            
+	            out.println(accType);
 	            out.close();
 	            bw.close();
 	            myWriter.close();

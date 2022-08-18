@@ -14,7 +14,16 @@
          </VBox.margin></Label>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label />
+            <VBox prefHeight="92.0" prefWidth="250.0">
+               <children>
+                  <Label fx:id="noticeLabel1">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="noticeLabel2" />
+               </children>
+            </VBox>
          </children>
       </HBox>
       <HBox alignment="TOP_CENTER" prefHeight="36.0" prefWidth="359.0">

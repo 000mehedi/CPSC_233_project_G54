@@ -15,6 +15,11 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="65.0" prefWidth="316.0">
          <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="578.0" text="Money will be withdrawn from Chequing Account.">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="61.0" prefWidth="316.0" />
          </children>
       </HBox>

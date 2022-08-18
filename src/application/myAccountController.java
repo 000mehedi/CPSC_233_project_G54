@@ -24,6 +24,11 @@ public class myAccountController {
 	private Stage stage;
 	private Scene scene;
 	
+	/**
+	 * This method leads to the menu screen 
+	 * where the user can deposit/withdraw/transfer/quit the program
+	 * @param event
+	 */
     @FXML
     public void backToAccountScreen(ActionEvent event) throws IOException {
     	FXMLLoader loader = new FXMLLoader();
@@ -41,6 +46,11 @@ public class myAccountController {
 	@FXML
 	private Label savField;
 	
+	/**
+	 * This method shows the current balance 
+	 * in the Chequing and Savings accounts
+	 * @param event
+	 */
     @FXML
     public void showCurrentBalance(ActionEvent event) throws FileNotFoundException, IOException {
     	

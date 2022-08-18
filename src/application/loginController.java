@@ -37,8 +37,12 @@ public class loginController {
 	@FXML
 	private TextField accNumberField;
 	
-	 @FXML
-	    public void logIn(ActionEvent event) throws FileNotFoundException, IOException {
+	/**
+	 * This method invokes the log in method in the Bank class
+	 * @param event
+	 */
+	@FXML
+	public void logIn(ActionEvent event) throws FileNotFoundException, IOException {
     
 		 	Bank myObject = new Bank();
 		 	myObject.login(stage, scene, loginNoticeLabel, event, nameField, accNumberField);
