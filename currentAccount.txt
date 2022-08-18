@@ -1,5 +1,5 @@
 Account Name:mahi
 Account Number:5212
-Chequing Balance:0.0
-Savings Balance:0.0
+Chequing Account: 187.59999999999997
+Savings Account Balance: 12.3
 Account Type:Personal
